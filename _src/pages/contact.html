@@ -1,62 +1,84 @@
 <main id="main">
-{{PAGE_HERO}}
+  <!-- CONTACT, SECTION 1 (one desktop screen): blue panel with title, contact details, plant selector and actions;
+       the Mappls map fills the right side at full height. -->
+  <section class="contact-hero" aria-labelledby="page-title">
+    <div class="contact-hero__panel">
+      <div class="contact-hero__inner">
+        <p class="eyebrow">Contact</p>
+        <h1 id="page-title">Get in touch</h1>
+        <p class="contact-hero__intro">Talk to us about new components, supply and plant visits.</p>
 
-  <!-- CONTACT + PLANT LOCATIONS: compact hero + this block fit one desktop screen (info left ~38%, map right ~62%). -->
-  <section class="contact-main" aria-label="Registered office and plant locations">
-    <div class="container contact-grid">
-      <div class="contact-info">
-
-        <div class="office">
-          <p class="office__label">Registered office</p>
-          <address>E-63, MIDC Waluj, Aurangabad<br>(Chhatrapati Sambhajinagar)<br>Maharashtra 431136, India</address>
-          <ul>
-            <li><a href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>+91 240 6625613</a></li>
-            <li><a href="tel:+912406625614"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>+91 240 6625614</a></li>
-            <li><a href="mailto:info@macpl.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>info@macpl.com</a></li>
-          </ul>
-        </div>
+        <h2 class="visually-hidden">Contact details</h2>
+        <ul class="contact-methods">
+          <li class="contact-method">
+            <span class="contact-method__icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></span>
+            <span><span class="contact-method__label">Call</span>
+            <span class="contact-method__value"><a href="tel:+912406625613">+91 240 6625613</a> / <a href="tel:+912406625614" aria-label="+91 240 6625614">6625614</a></span></span>
+          </li>
+          <li class="contact-method">
+            <span class="contact-method__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></span>
+            <span><span class="contact-method__label">Email</span>
+            <span class="contact-method__value"><a href="mailto:info@macpl.com">info@macpl.com</a></span></span>
+          </li>
+          <li class="contact-method">
+            <span class="contact-method__icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>
+            <span><span class="contact-method__label">Registered office</span>
+            <address class="contact-method__value">E-63, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136</address></span>
+          </li>
+        </ul>
 
         <h2 class="plants__title" id="plants-title">Plant locations</h2>
         <!-- Buttons are rendered from PLANTS in assets/js/main.js -->
         <div class="plant-list" id="plant-list" role="group" aria-labelledby="plants-title"></div>
         <p class="plant-detail" id="plant-detail" aria-live="polite"></p>
 
-        <div class="contact-info__actions">
+        <div class="contact-hero__actions">
           <a class="btn btn--primary" href="#enquiry">Send an enquiry</a>
-        </div>
-      </div>
-
-      <!-- MAP: Mappls (MapmyIndia) Web SDK, loaded by main.js once MAPPLS_KEY is set.
-           The static card below is the fallback (no key, SDK failure, or no JavaScript). -->
-      <div class="map-wrap" data-map>
-        <div id="map" role="region" aria-label="Map of the selected MACPL location"></div>
-        <div class="map-fallback" id="map-fallback">
-          <div class="map-fallback__card">
-            <span class="map-fallback__pin"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>
-            <h2 data-fb-name>Registered office</h2>
-            <address data-fb-address>E-63, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136</address>
-            <p class="map-fallback__coords" data-fb-coords></p>
-            <div class="map-fallback__actions">
-              <a class="btn btn--primary" data-fb-open href="https://mappls.com/@19.8436,75.2391" target="_blank" rel="noopener">Open in Mappls <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></a>
-              <a class="btn btn--secondary" data-fb-call href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span data-fb-phone>+91 240 6625613</span></a>
-            </div>
-            <p class="map-fallback__note">Interactive map unavailable. Open this location in Mappls for directions.</p>
-          </div>
+          <a class="btn btn--ghost" href="https://mappls.com/@19.8436,75.2391" target="_blank" rel="noopener" data-plant-directions><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>Get directions</a>
         </div>
       </div>
     </div>
+
+    <!-- MAP: Mappls (MapmyIndia) Web SDK, loaded by main.js once MAPPLS_KEY is set.
+         The static card below is the fallback (no key, SDK failure, or no JavaScript). -->
+    <div class="map-wrap" data-map>
+      <div id="map" role="region" aria-label="Map of the selected MACPL location"></div>
+      <div class="map-fallback" id="map-fallback">
+        <div class="map-fallback__card">
+          <span class="map-fallback__pin"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>
+          <h2 data-fb-name>Registered office</h2>
+          <address data-fb-address>E-63, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136</address>
+          <p class="map-fallback__coords" data-fb-coords></p>
+          <div class="map-fallback__actions">
+            <a class="btn btn--primary" data-fb-open href="https://mappls.com/@19.8436,75.2391" target="_blank" rel="noopener">Open in Mappls <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></a>
+            <a class="btn btn--secondary" data-fb-call href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span data-fb-phone>+91 240 6625613</span></a>
+          </div>
+          <p class="map-fallback__note">Interactive map unavailable. Open this location in Mappls for directions.</p>
+        </div>
+      </div>
+    </div>
+    <div class="brand-bar" aria-hidden="true"></div>
   </section>
 
-  <!-- ENQUIRY FORM: below the fold so it never pushes the map out of the first screen -->
+  <!-- CONTACT, SECTION 2: enquiry guidance + form card -->
   <section id="enquiry" class="section section--surface" aria-labelledby="enquiry-title">
-    <div class="container form-layout">
-      <div>
+    <div class="container enquiry">
+      <div class="enquiry__intro">
         <p class="eyebrow">Enquiry</p>
         <h2 id="enquiry-title">Share your requirement</h2>
-        <p class="lead">Send a drawing or specification. Our development team will respond.</p>
+        <p class="lead">Our development team reviews every enquiry and responds directly.</p>
+        <h3 class="enquiry__subtitle">Helpful to include</h3>
+        <ul class="enquiry__list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Part drawing or 3D model</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Material and key specifications</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Annual volume and batch size</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Target start of production</li>
+        </ul>
+        <p class="enquiry__alt">Prefer email? Write to <a href="mailto:info@macpl.com">info@macpl.com</a></p>
       </div>
+
       <!-- TODO: connect to the client's form endpoint / sales inbox before launch -->
-      <form class="form" data-demo-form data-success="Thank you. We have received your enquiry and will be in touch shortly.">
+      <form class="form form-card" data-demo-form data-success="Thank you. We have received your enquiry and will be in touch shortly." enctype="multipart/form-data">
         <div class="field">
           <label for="enq-name">Name <span class="req" aria-hidden="true">*</span></label>
           <input type="text" id="enq-name" name="name" autocomplete="name" required>
@@ -74,12 +96,26 @@
           <input type="tel" id="enq-phone" name="phone" autocomplete="tel">
         </div>
         <div class="field field--full">
+          <label for="enq-type">Enquiry type</label>
+          <select id="enq-type" name="type">
+            <option>New component development</option>
+            <option>Supply or RFQ</option>
+            <option>Plant visit</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field field--full">
           <label for="enq-message">Message <span class="req" aria-hidden="true">*</span></label>
           <textarea id="enq-message" name="message" rows="4" required></textarea>
         </div>
+        <div class="field field--full">
+          <label for="enq-file">Drawing or specification <span class="field__optional">(optional)</span></label>
+          <input type="file" id="enq-file" name="attachment" accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges,.zip" aria-describedby="enq-file-hint">
+          <span class="field__hint" id="enq-file-hint">PDF, DWG, DXF, STEP, IGES or ZIP, up to 10 MB.</span>
+        </div>
         <div class="form__actions">
           <button class="btn btn--primary" type="submit">Send enquiry</button>
-          <span class="form__note">Fields marked * are required.</span>
+          <span class="form__note">Fields marked * are required. We use your details only to respond to this enquiry.</span>
         </div>
         <p class="form__status" role="status" tabindex="-1" hidden></p>
       </form>

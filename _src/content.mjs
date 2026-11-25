@@ -213,44 +213,39 @@ export const openings = [
 // Images: assets/img/page-hero/<page>-1600.webp and -800.webp (placeholders: plant stills / stock).
 export const pageHeroes = {
   about: {
-    crumb: 'About', eyebrow: 'Since 1997', title: 'Engineering safety into every component',
+    eyebrow: 'Since 1997', title: 'Engineering safety into every component',
     intro: 'Founded in 1997, MACPL develops and builds safety-critical components for more than a dozen OEMs.',
     chipsLabel: 'On this page',
     chips: [['Overview', '#overview'], ['Vision & values', '#vision-values'], ['Board', '#board'], ['Management', '#management']]
   },
   capabilities: {
-    crumb: 'Capabilities', eyebrow: 'Under one roof', title: 'Six core manufacturing capabilities',
+    eyebrow: 'Under one roof', title: 'Six core manufacturing capabilities',
     intro: 'Every critical process stays in-house, so quality, cost and lead time stay under our control.',
     chipsLabel: 'Jump to a capability',
     chips: [['Tube bending', '#tube-bending'], ['Welding', '#welding'], ['Heat treatment', '#heat-treatment'], ['Casting', '#casting'], ['Cutting', '#plasma-cutting'], ['Assemblies', '#assembly']]
   },
   products: {
-    crumb: 'Products', eyebrow: 'What we make', title: 'Components for every vehicle segment',
+    eyebrow: 'What we make', title: 'Components for every vehicle segment',
     intro: 'Steering, suspension and chassis components and assemblies for agriculture, construction and mobility OEMs.',
     chipsLabel: 'Filter by sector',
     chips: [['Agriculture', '?cat=agri', 'agri'], ['Earth moving', '?cat=earth', 'earth'], ['3 wheelers', '?cat=3w', '3w'], ['2 wheelers & EV', '?cat=2w', '2w']]
   },
   'investor-relations': {
-    crumb: 'Investor relations', eyebrow: 'Transparency', title: 'Investor information and disclosures',
+    eyebrow: 'Transparency', title: 'Investor information and disclosures',
     intro: 'Financial results, statutory filings and policies of Marathwada Auto Compo Pvt. Ltd.',
     chipsLabel: 'Go to',
     chips: [['Financial results', '#financial-results'], ['Annual returns', '#annual-returns'], ['Policies', '#policies'], ['Investor contact', '#shareholder-info']]
   },
   news: {
-    crumb: 'News & media', eyebrow: 'Newsroom', title: 'News, certifications and events',
+    eyebrow: 'Newsroom', title: 'News, certifications and events',
     intro: 'Certifications, initiatives and life across our three plants.',
     chipsLabel: 'Filter by topic',
     chips: [['Certifications', '?cat=certifications', 'certifications'], ['Events', '?cat=events', 'events'], ['CSR', '?cat=csr', 'csr']]
   },
   careers: {
-    crumb: 'Careers', eyebrow: 'Join MACPL', title: 'Build a career in precision manufacturing',
+    eyebrow: 'Join MACPL', title: 'Build a career in precision manufacturing',
     intro: 'Join a skilled team building safety-critical components, backed by in-house training.',
     chipsLabel: 'On this page',
     chips: [['Open roles', '#openings'], ['Apply now', '#apply']]
-  },
-  contact: {
-    compact: true, crumb: 'Contact', title: 'Get in touch',
-    chipsLabel: 'Contact details',
-    chips: [['+91 240 6625613', 'tel:+912406625613', null, 'phone'], ['info@macpl.com', 'mailto:info@macpl.com', null, 'mail']]
   }
 };

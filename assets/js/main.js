@@ -439,6 +439,7 @@ const IR_DOCUMENTS = [
       current = PLANTS.filter(function (p) { return p.id === id; })[0] || PLANTS[0];
       $$('.plant-btn', list).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-id') === current.id)); });
       if (detail) detail.textContent = current.address;
+      $$('[data-plant-directions]').forEach(function (l) { l.href = mapplsUrl(current); });
       renderFallback(current);
       if (ready) placeMarker(current, animate);
     }

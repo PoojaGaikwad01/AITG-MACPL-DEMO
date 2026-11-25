@@ -224,13 +224,12 @@ function pageHero(page) {
   const chips = h.chips.map(([label, href, filter, icon]) =>
     `<li><a class="hero-chip" href="${href}"${filter ? ` data-set-filter="${filter}"` : ''}>${icon ? ico(icon) : ''}${esc(label)}</a></li>`).join('');
   return `
-  <!-- PAGE HERO (inner pages): plant photo + solid blue overlay, breadcrumb, eyebrow, H1, intro, chips, brand bar.
+  <!-- PAGE HERO (inner pages): plant photo + solid blue overlay, eyebrow, H1, intro, chips, brand bar.
        TODO: replace the placeholder image in assets/img/page-hero/ with a MACPL photo for this page. -->
   <section class="page-hero${h.compact ? ' page-hero--compact' : ''}" aria-labelledby="page-title">
     <img class="page-hero__img" src="${img}-1600.webp" srcset="${img}-800.webp 800w, ${img}-1600.webp 1600w" sizes="100vw" width="1600" height="600" alt="" loading="eager" fetchpriority="high" decoding="async">
     <div class="page-hero__overlay" aria-hidden="true"></div>
-    <div class="container page-hero__inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="crumb-sep" aria-hidden="true"></span><span aria-current="page">${esc(h.crumb)}</span></nav>${h.eyebrow ? `
+    <div class="container page-hero__inner">${h.eyebrow ? `
       <p class="eyebrow">${esc(h.eyebrow)}</p>` : ''}
       <h1 id="page-title">${esc(h.title)}</h1>${h.intro ? `
       <p class="page-hero__intro">${esc(h.intro)}</p>` : ''}
