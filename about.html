@@ -55,14 +55,18 @@
 
 <main id="main">
 
-  <!-- PAGE HERO (inner pages): plant photo + solid blue overlay, breadcrumb, eyebrow, H1, intro, chips, brand bar.
-       TODO: replace the placeholder image in assets/img/page-hero/ with a MACPL photo for this page. -->
+  <!-- PAGE HERO (inner pages): blue panel with a faint blueprint grid, cut at the brand's 60deg angle with an
+       orange stripe; full-colour plant photo with a caption; numbered kicker, H1, intro, chip strip, brand bar.
+       TODO: replace the placeholder photo in assets/img/page-hero/ with a MACPL photo and update its caption. -->
   <section class="page-hero" aria-labelledby="page-title">
-    <img class="page-hero__img" src="assets/img/page-hero/about-1600.webp" srcset="assets/img/page-hero/about-800.webp 800w, assets/img/page-hero/about-1600.webp 1600w" sizes="100vw" width="1600" height="600" alt="" loading="eager" fetchpriority="high" decoding="async">
-    <div class="page-hero__overlay" aria-hidden="true"></div>
+    <figure class="page-hero__media">
+      <img src="assets/img/page-hero/about-1600.webp" srcset="assets/img/page-hero/about-800.webp 800w, assets/img/page-hero/about-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw" width="1600" height="600" alt="" loading="eager" fetchpriority="high" decoding="async">
+      <figcaption class="page-hero__caption">Robotic hot bending</figcaption>
+    </figure>
+    <div class="page-hero__panel" aria-hidden="true"></div>
+    <div class="page-hero__stripe" aria-hidden="true"></div>
     <div class="container page-hero__inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="crumb-sep" aria-hidden="true"></span><span aria-current="page">About</span></nav>
-      <p class="eyebrow">Since 1997</p>
+      <p class="page-hero__kicker"><span class="page-hero__index" aria-hidden="true">01</span><span class="page-hero__slash" aria-hidden="true"></span><span class="page-hero__eyebrow">Since 1997</span></p>
       <h1 id="page-title">Engineering safety into every component</h1>
       <p class="page-hero__intro">Founded in 1997, MACPL develops and builds safety-critical components for more than a dozen OEMs.</p>
       <ul class="page-hero__chips" aria-label="On this page"><li><a class="hero-chip" href="#overview">Overview</a></li><li><a class="hero-chip" href="#vision-values">Vision &amp; values</a></li><li><a class="hero-chip" href="#board">Board</a></li><li><a class="hero-chip" href="#management">Management</a></li></ul>

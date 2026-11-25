@@ -77,7 +77,7 @@
      Below 480px the horizontal lockup cannot be 55px high (it would be ~393px wide), so it scales to fit. */
   --header-h: 72px;
   --logo-h: 55px;
-  --page-hero-compact: 160px;   /* contact page hero height on desktop */
+  --ph-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpath d='M32 .5H.5V32' fill='none' stroke='%23fff' stroke-opacity='.08'/%3E%3C/svg%3E"); /* blueprint grid on blue panels */
 
   /* Shape, depth & motion */
   --radius: 8px;                /* cards, panels, images */
@@ -126,7 +126,7 @@ small { font-size: var(--fs-small); }
 /* One line-icon set: 24px grid, 1.5px non-scaling stroke, blue.
    Inside buttons, on blue and in the footer the icon follows the text colour. */
 .icon { width: 1em; height: 1em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; color: var(--blue); }
-.btn .icon, .section--dark .icon, .site-footer .icon, .hero .icon, .link-arrow--light .icon, .part--cta .icon { color: currentColor; }
+.btn .icon, .section--dark .icon, .site-footer .icon, .hero .icon, .link-arrow--light .icon, .part--cta .icon, .contact-hero .icon { color: currentColor; }
 
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 .on-dark :focus-visible, .site-footer :focus-visible, .hero :focus-visible, .part--cta :focus-visible { outline-color: var(--white); }
@@ -295,62 +295,86 @@ small { font-size: var(--fs-small); }
 .tag--muted { border: 1px dashed var(--grey); background: var(--surface); }
 
 /* 6. Page hero (inner pages) ----------------------------------------------
-   Plant photo + one solid blue overlay (no gradient, no logo), content left-aligned in the
-   1200px container: breadcrumb → eyebrow → H1 → one-line intro → chips. 4px brand bar at the bottom. */
-.breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: var(--space-1); font-size: var(--fs-small); color: var(--text); }
-.breadcrumb a { color: var(--text); }
-.breadcrumb a:hover { color: var(--blue); }
-/* Brand 60deg slash as the breadcrumb separator */
-.crumb-sep { display: inline-block; width: 2px; height: 13px; background: var(--orange); transform: skewX(-30deg); }
-
+   Desktop: solid blue panel with a faint blueprint grid, cut on its right edge at the brand's
+   60deg angle and edged with an orange stripe; the plant photo shows in full colour on the right
+   with a caption tag. Below 1024px: photo strip on top, panel below.
+   No gradients, no overlay on the photo, no logo, no animation. */
 .page-hero {
-  --page-hero-bar: 4px;
+  --ph-bar: 4px;
   position: relative; overflow: hidden;
-  display: flex; align-items: center;
-  min-height: 200px; padding-block: 20px calc(20px + var(--page-hero-bar));
-  background: var(--blue); color: var(--white);
+  background: var(--blue) var(--ph-grid);
+  color: var(--white);
 }
-@media (min-width: 768px) { .page-hero { min-height: 220px; } }
-@media (min-width: 1024px) {
-  .page-hero { min-height: 280px; padding-block: var(--space-6) calc(var(--space-6) + var(--page-hero-bar)); }
+.page-hero__media { position: relative; height: 96px; margin: 0; background: var(--blue); }
+.page-hero__media img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 640px) { .page-hero__media { height: 140px; } }
+.page-hero__caption {
+  position: absolute; right: var(--gutter); bottom: var(--space-2);
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  padding: 5px 10px; border-radius: var(--radius-btn); background: var(--blue);
+  font-size: .75rem; font-weight: 700; letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--white);
 }
-.page-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.page-hero__overlay { position: absolute; inset: 0; background: rgba(0, 66, 130, .72); }
-.page-hero__inner { position: relative; z-index: 1; }
-.page-hero .breadcrumb { margin-bottom: var(--space-2); color: rgba(255, 255, 255, .8); }
-.page-hero .breadcrumb a { color: rgba(255, 255, 255, .8); text-decoration-color: rgba(255, 255, 255, .5); }
-.page-hero .breadcrumb a:hover { color: var(--white); text-decoration-color: var(--orange); }
-.page-hero .eyebrow { margin-bottom: 2px; }
+.page-hero__caption::before { content: ""; width: 8px; height: 8px; background: var(--orange); }
+.page-hero__panel, .page-hero__stripe { display: none; }
+.page-hero__inner { position: relative; z-index: 2; padding-block: 20px calc(24px + var(--ph-bar)); }
+
+/* Numbered kicker: page index / orange 60deg slash / eyebrow */
+.page-hero__kicker {
+  display: flex; align-items: center; gap: 10px; margin-bottom: var(--space-2);
+  font-size: var(--fs-label); font-weight: 700; letter-spacing: var(--ls-label); text-transform: uppercase;
+}
+.page-hero__index { color: var(--white); font-variant-numeric: tabular-nums; }
+.page-hero__slash { width: 3px; height: 16px; background: var(--orange); transform: skewX(-30deg); }
+.page-hero__eyebrow { color: var(--eyebrow-color); }
 .page-hero h1 { color: var(--white); }
-.page-hero__intro { margin-top: 6px; max-width: 90ch; color: rgba(255, 255, 255, .85); } /* ≤18 words: one line on desktop */
-.page-hero__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+.page-hero__intro { margin-top: var(--space-2); color: rgba(255, 255, 255, .85); }
+
+/* Chip strip: joined cells like a datasheet row; hover = orange border */
+.page-hero__chips { display: flex; flex-wrap: wrap; margin-top: var(--space-4); }
+.page-hero__chips li { margin: 0 -1px -1px 0; }
 .page-hero__chips.is-collapsed { display: none; } /* set by main.js when the row wraps to more than 2 lines */
-@media (min-width: 1024px) {
-  .page-hero .breadcrumb { margin-bottom: var(--space-3); }
-  .page-hero__chips { margin-top: var(--space-4); }
-}
 .hero-chip {
-  display: inline-flex; align-items: center; gap: 6px;
-  min-height: 36px; padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, .3); border-radius: var(--radius-btn);
+  position: relative; display: inline-flex; align-items: center; gap: var(--space-2);
+  min-height: 40px; padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, .3);
   font-size: var(--fs-small); font-weight: 700; color: var(--white); text-decoration: none;
   transition: border-color var(--t);
 }
-.hero-chip:hover { border-color: var(--orange); color: var(--white); }
+.page-hero__chips li:first-child .hero-chip { border-radius: var(--radius-btn) 0 0 var(--radius-btn); }
+.page-hero__chips li:last-child .hero-chip { border-radius: 0 var(--radius-btn) var(--radius-btn) 0; }
+.page-hero__chips li:only-child .hero-chip { border-radius: var(--radius-btn); }
+.hero-chip:hover { z-index: 1; border-color: var(--orange); color: var(--white); }
 .hero-chip .icon { width: 16px; height: 16px; color: currentColor; }
 @media (pointer: coarse) { .hero-chip { min-height: 44px; } }
-.page-hero :focus-visible { outline-color: var(--white); }
+.page-hero :focus-visible { outline-color: var(--white); position: relative; z-index: 2; }
 
-/* Contact: compact hero (breadcrumb + H1 + contact chips) so the map still fits the first screen */
-.page-hero--compact { min-height: 0; }
-.page-hero--compact .breadcrumb { margin-bottom: var(--space-2); }
-.page-hero--compact .page-hero__chips { margin-top: var(--space-3); }
 @media (min-width: 1024px) {
-  .page-hero--compact { height: var(--page-hero-compact); min-height: 0; padding-block: 16px calc(16px + var(--page-hero-bar)); }
+  .page-hero {
+    --ph-h: 300px;                                   /* design height; grows if content needs it */
+    --ph-text: 600px;                                /* text column width */
+    --ph-slant: calc(var(--ph-h) * var(--slash));    /* 60deg edge: horizontal run = height × tan 30° */
+    --ph-x: calc(max(var(--gutter), (100% - var(--maxw)) / 2) + var(--ph-text) + var(--ph-slant) + 48px);
+    display: flex; align-items: center; min-height: var(--ph-h);
+    background: var(--blue);
+  }
+  .page-hero__media { position: absolute; top: 0; right: 0; bottom: 0; left: calc(var(--ph-x) - var(--ph-slant) - 24px); height: auto; }
+  .page-hero__caption { right: max(var(--gutter), calc((100vw - var(--maxw)) / 2)); bottom: calc(var(--space-4) + var(--ph-bar)); }
+  .page-hero__panel {
+    display: block; position: absolute; inset: 0; z-index: 1;
+    background: var(--blue) var(--ph-grid);
+    clip-path: polygon(0 0, var(--ph-x) 0, calc(var(--ph-x) - var(--ph-slant)) 100%, 0 100%);
+  }
+  .page-hero__stripe {
+    display: block; position: absolute; inset: 0; z-index: 1; background: var(--orange);
+    clip-path: polygon(var(--ph-x) 0, calc(var(--ph-x) + 14px) 0, calc(var(--ph-x) + 14px - var(--ph-slant)) 100%, calc(var(--ph-x) - var(--ph-slant)) 100%);
+  }
+  .page-hero__inner { padding-block: var(--space-6) calc(var(--space-6) + var(--ph-bar)); }
+  .page-hero__inner > * { max-width: var(--ph-text); }
+  .page-hero__inner > .page-hero__chips { max-width: calc(var(--ph-text) + 40px); }
 }
 
 /* Brand bar: orange left 30%, blue right 70%, joined by a 60deg diagonal cut (4px on page heroes) */
-.brand-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; height: 4px; background: var(--blue); }
+.brand-bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; height: 4px; background: var(--blue); }
 .brand-bar::before {
   content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 30%; background: var(--orange);
   clip-path: polygon(0 0, 100% 0, calc(100% - 4px * var(--slash)) 100%, 0 100%);
@@ -736,44 +760,49 @@ small { font-size: var(--fs-small); }
 .contact-card dt { font-size: .75rem; font-weight: 700; letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--text); }
 .contact-card dd { margin-top: 2px; }
 
-/* 13. Contact & map -------------------------------------------------------- */
-.contact-main { padding-block: var(--space-4) var(--space-5); }
-.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--card-gap); }
-.contact-grid > * { min-width: 0; }
-.office { display: grid; gap: var(--space-2) var(--space-4); }
+/* 13. Contact & map --------------------------------------------------------
+   The contact hero is arranged as one screen: blueprint-grid blue panel (title, office details,
+   plant selector) on the left, the Mappls map full height on the right (where other pages show a photo). */
+.contact-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); background: var(--blue); color: var(--white); }
+.contact-hero__panel { background: var(--blue) var(--ph-grid); padding: var(--space-5) var(--gutter) var(--space-6); }
+.contact-hero__inner { max-width: 520px; }
+.contact-hero h1 { color: var(--white); }
+.contact-hero__intro { margin-top: var(--space-2); color: rgba(255, 255, 255, .85); }
+.contact-hero :focus-visible { outline-color: var(--white); }
+
+.office { display: grid; gap: var(--space-2) var(--space-4); margin-top: var(--space-5); }
 @media (min-width: 480px) { .office { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
-.office__label, .plants__title { font-size: .75rem; font-weight: 700; letter-spacing: var(--ls-label); text-transform: uppercase; color: var(--text); }
+.office__label, .plants__title { font-size: .75rem; font-weight: 700; letter-spacing: var(--ls-label); text-transform: uppercase; color: rgba(255, 255, 255, .75); }
 .office__label { grid-column: 1 / -1; }
-.office address { font-size: .9375rem; line-height: 1.5; }
+.office address { font-size: .9375rem; line-height: 1.5; color: var(--white); }
 .office ul { display: grid; gap: 2px; align-content: start; }
-.office li a { display: inline-flex; align-items: center; gap: 8px; min-height: 30px; font-size: .9375rem; text-decoration: none; }
+.office li a { display: inline-flex; align-items: center; gap: 8px; min-height: 30px; font-size: .9375rem; color: var(--white); text-decoration: none; }
 .office li a:hover { text-decoration: underline; text-decoration-color: var(--orange); }
 .office .icon { width: 16px; height: 16px; }
 
-.plants__title { margin-top: var(--space-4); }
+.plants__title { margin-top: var(--space-5); }
 .plant-list { display: flex; gap: var(--space-2); margin-top: var(--space-2); overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
 .plant-list::-webkit-scrollbar { display: none; }
 .plant-btn {
   flex: none; display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
   min-height: 44px; padding: 10px 14px; text-align: left;
-  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+  background: transparent; border: 1px solid rgba(255, 255, 255, .3); border-radius: var(--radius);
   transition: border-color var(--t), background-color var(--t);
 }
-.plant-btn:hover { border-color: var(--blue); }
-.plant-btn[aria-pressed="true"] { border-color: var(--blue); background: var(--surface); box-shadow: inset 3px 0 0 var(--orange); }
-.plant-btn__name { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: .9375rem; color: var(--blue); }
+.plant-btn:hover { border-color: var(--orange); }
+.plant-btn[aria-pressed="true"] { border-color: var(--white); background: var(--white); box-shadow: inset 3px 0 0 var(--orange); }
+.plant-btn__name { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: .9375rem; color: var(--white); }
+.plant-btn[aria-pressed="true"] .plant-btn__name { color: var(--blue); }
 .plant-btn__name .icon { width: 16px; height: 16px; }
 .plant-btn__addr {
-  display: none; font-size: var(--fs-label); line-height: 1.4; color: var(--text);
+  display: none; font-size: var(--fs-label); line-height: 1.4; color: rgba(255, 255, 255, .75);
   -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
-.plant-detail { margin-top: var(--space-2); font-size: .9375rem; color: var(--text); }
-.contact-info__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+.plant-btn[aria-pressed="true"] .plant-btn__addr { color: var(--text); }
+.plant-detail { margin-top: var(--space-2); font-size: .9375rem; color: rgba(255, 255, 255, .85); }
+.contact-info__actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-5); }
 
-.map-wrap {
-  position: relative; height: 50vh; min-height: 320px;
-  border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); box-shadow: var(--shadow);
-}
+.map-wrap { position: relative; height: 50vh; min-height: 320px; overflow: hidden; background: var(--surface); color: var(--text); }
 #map { position: absolute; inset: 0; }
 .map-fallback { position: absolute; inset: 0; display: grid; place-items: center; padding: var(--space-4); background: var(--surface); }
 .map-fallback__card { width: min(100%, 380px); padding: var(--space-5); }
@@ -789,14 +818,21 @@ small { font-size: var(--fs-small); }
 .map-popup a { display: inline-block; margin-top: 4px; font-weight: 700; color: var(--blue); }
 
 @media (min-width: 1024px) {
-  .contact-main { padding-block: var(--space-5); }
-  .contact-grid { grid-template-columns: minmax(0, 38fr) minmax(0, 62fr); gap: var(--card-gap); align-items: start; }
+  /* Panel column ends 520px after the container's left edge; the map runs to the screen edge. One screen tall. */
+  .contact-hero {
+    grid-template-columns: calc(max(var(--gutter), (100vw - var(--maxw)) / 2) + 520px) minmax(0, 1fr);
+    height: calc(100vh - var(--header-h)); height: calc(100svh - var(--header-h));
+    min-height: 600px; max-height: 860px;
+  }
+  .contact-hero__panel {
+    display: flex; align-items: center;
+    padding: var(--space-6) 40px calc(var(--space-6) + 4px) max(var(--gutter), calc((100vw - var(--maxw)) / 2));
+  }
+  .map-wrap { height: auto; min-height: 0; }
   .plant-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
   .plant-btn { flex: initial; padding: 10px 12px; }
   .plant-btn__addr { display: -webkit-box; }
   .plant-detail { display: none; }
-  /* header + compact page hero + section padding (2 × 24px) + map = one screen */
-  .map-wrap { height: calc(100vh - var(--header-h) - var(--page-hero-compact) - 48px); min-height: 420px; }
 }
 
 /* 14. Forms ---------------------------------------------------------------- */

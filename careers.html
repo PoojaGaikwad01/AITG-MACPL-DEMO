@@ -55,14 +55,18 @@
 
 <main id="main">
 
-  <!-- PAGE HERO (inner pages): plant photo + solid blue overlay, breadcrumb, eyebrow, H1, intro, chips, brand bar.
-       TODO: replace the placeholder image in assets/img/page-hero/ with a MACPL photo for this page. -->
+  <!-- PAGE HERO (inner pages): blue panel with a faint blueprint grid, cut at the brand's 60deg angle with an
+       orange stripe; full-colour plant photo with a caption; numbered kicker, H1, intro, chip strip, brand bar.
+       TODO: replace the placeholder photo in assets/img/page-hero/ with a MACPL photo and update its caption. -->
   <section class="page-hero" aria-labelledby="page-title">
-    <img class="page-hero__img" src="assets/img/page-hero/careers-1600.webp" srcset="assets/img/page-hero/careers-800.webp 800w, assets/img/page-hero/careers-1600.webp 1600w" sizes="100vw" width="1600" height="600" alt="" loading="eager" fetchpriority="high" decoding="async">
-    <div class="page-hero__overlay" aria-hidden="true"></div>
+    <figure class="page-hero__media">
+      <img src="assets/img/page-hero/careers-1600.webp" srcset="assets/img/page-hero/careers-800.webp 800w, assets/img/page-hero/careers-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw" width="1600" height="600" alt="" loading="eager" fetchpriority="high" decoding="async">
+      <figcaption class="page-hero__caption">Induction heating</figcaption>
+    </figure>
+    <div class="page-hero__panel" aria-hidden="true"></div>
+    <div class="page-hero__stripe" aria-hidden="true"></div>
     <div class="container page-hero__inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="crumb-sep" aria-hidden="true"></span><span aria-current="page">Careers</span></nav>
-      <p class="eyebrow">Join MACPL</p>
+      <p class="page-hero__kicker"><span class="page-hero__index" aria-hidden="true">06</span><span class="page-hero__slash" aria-hidden="true"></span><span class="page-hero__eyebrow">Join MACPL</span></p>
       <h1 id="page-title">Build a career in precision manufacturing</h1>
       <p class="page-hero__intro">Join a skilled team building safety-critical components, backed by in-house training.</p>
       <ul class="page-hero__chips" aria-label="On this page"><li><a class="hero-chip" href="#openings">Open roles</a></li><li><a class="hero-chip" href="#apply">Apply now</a></li></ul>

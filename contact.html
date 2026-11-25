@@ -54,24 +54,14 @@
 </header>
 
 <main id="main">
-
-  <!-- PAGE HERO (inner pages): plant photo + solid blue overlay, breadcrumb, eyebrow, H1, intro, chips, brand bar.
-       TODO: replace the placeholder image in assets/img/page-hero/ with a MACPL photo for this page. -->
-  <section class="page-hero page-hero--compact" aria-labelledby="page-title">
-    <img class="page-hero__img" src="assets/img/page-hero/contact-1600.webp" srcset="assets/img/page-hero/contact-800.webp 800w, assets/img/page-hero/contact-1600.webp 1600w" sizes="100vw" width="1600" height="600" alt="" loading="eager" fetchpriority="high" decoding="async">
-    <div class="page-hero__overlay" aria-hidden="true"></div>
-    <div class="container page-hero__inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="crumb-sep" aria-hidden="true"></span><span aria-current="page">Contact</span></nav>
-      <h1 id="page-title">Get in touch</h1>
-      <ul class="page-hero__chips" aria-label="Contact details"><li><a class="hero-chip" href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>+91 240 6625613</a></li><li><a class="hero-chip" href="mailto:info@macpl.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>info@macpl.com</a></li></ul>
-    </div>
-    <div class="brand-bar" aria-hidden="true"></div>
-  </section>
-
-  <!-- CONTACT + PLANT LOCATIONS: compact hero + this block fit one desktop screen (info left ~38%, map right ~62%). -->
-  <section class="contact-main" aria-label="Registered office and plant locations">
-    <div class="container contact-grid">
-      <div class="contact-info">
+  <!-- CONTACT HERO: the inner-page hero arranged as one screen. Blueprint-grid blue panel (title, office details,
+       plant selector) on the left; the Mappls map fills the right, where the other pages show a photo. -->
+  <section class="contact-hero" aria-labelledby="page-title">
+    <div class="contact-hero__panel">
+      <div class="contact-hero__inner">
+        <p class="page-hero__kicker"><span class="page-hero__index" aria-hidden="true">07</span><span class="page-hero__slash" aria-hidden="true"></span><span class="page-hero__eyebrow">Contact</span></p>
+        <h1 id="page-title">Get in touch</h1>
+        <p class="contact-hero__intro">Component enquiries, supply partnerships and plant visits.</p>
 
         <div class="office">
           <p class="office__label">Registered office</p>
@@ -92,26 +82,27 @@
           <a class="btn btn--primary" href="#enquiry">Send an enquiry</a>
         </div>
       </div>
+    </div>
 
-      <!-- MAP: Mappls (MapmyIndia) Web SDK, loaded by main.js once MAPPLS_KEY is set.
-           The static card below is the fallback (no key, SDK failure, or no JavaScript). -->
-      <div class="map-wrap" data-map>
-        <div id="map" role="region" aria-label="Map of the selected MACPL location"></div>
-        <div class="map-fallback" id="map-fallback">
-          <div class="map-fallback__card">
-            <span class="map-fallback__pin"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>
-            <h2 data-fb-name>Registered office</h2>
-            <address data-fb-address>E-63, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136</address>
-            <p class="map-fallback__coords" data-fb-coords></p>
-            <div class="map-fallback__actions">
-              <a class="btn btn--primary" data-fb-open href="https://mappls.com/@19.8436,75.2391" target="_blank" rel="noopener">Open in Mappls <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></a>
-              <a class="btn btn--secondary" data-fb-call href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span data-fb-phone>+91 240 6625613</span></a>
-            </div>
-            <p class="map-fallback__note">Interactive map unavailable. Open this location in Mappls for directions.</p>
+    <!-- MAP: Mappls (MapmyIndia) Web SDK, loaded by main.js once MAPPLS_KEY is set.
+         The static card below is the fallback (no key, SDK failure, or no JavaScript). -->
+    <div class="map-wrap" data-map>
+      <div id="map" role="region" aria-label="Map of the selected MACPL location"></div>
+      <div class="map-fallback" id="map-fallback">
+        <div class="map-fallback__card">
+          <span class="map-fallback__pin"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>
+          <h2 data-fb-name>Registered office</h2>
+          <address data-fb-address>E-63, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136</address>
+          <p class="map-fallback__coords" data-fb-coords></p>
+          <div class="map-fallback__actions">
+            <a class="btn btn--primary" data-fb-open href="https://mappls.com/@19.8436,75.2391" target="_blank" rel="noopener">Open in Mappls <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></a>
+            <a class="btn btn--secondary" data-fb-call href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span data-fb-phone>+91 240 6625613</span></a>
           </div>
+          <p class="map-fallback__note">Interactive map unavailable. Open this location in Mappls for directions.</p>
         </div>
       </div>
     </div>
+    <div class="brand-bar" aria-hidden="true"></div>
   </section>
 
   <!-- ENQUIRY FORM: below the fold so it never pushes the map out of the first screen -->
