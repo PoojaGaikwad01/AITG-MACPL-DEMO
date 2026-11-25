@@ -1,0 +1,51 @@
+<main id="main">
+{{PAGE_HERO}}
+
+  <!-- Structure follows the Dhoot Transmission investor page: category tabs + year filter + document list.
+       All documents live in IR_DOCUMENTS in assets/js/main.js. -->
+  <section class="section" aria-label="Investor documents">
+    <div class="container ir" data-ir>
+      <div class="ir__side">
+        <div class="ir__nav" id="ir-nav" role="tablist" aria-label="Investor information" aria-orientation="vertical"></div>
+        <p class="ir__aside-note">Investor queries: <a href="mailto:info@macpl.com">info@macpl.com</a></p>
+      </div>
+
+      <div class="ir__panel" id="ir-panel" role="tabpanel" tabindex="0">
+        <div class="ir__head">
+          <div>
+            <p class="eyebrow">Documents</p>
+            <h2 id="ir-title">Financial results</h2>
+            <p class="lead" id="ir-desc"></p>
+          </div>
+          <label class="year-filter" for="ir-year">Financial year <select id="ir-year"><option value="all">All years</option></select></label>
+        </div>
+
+        <div class="table-wrap" id="ir-table">
+          <table class="doc-table">
+            <caption class="visually-hidden">Documents for the selected category and financial year</caption>
+            <thead><tr><th scope="col">Document</th><th scope="col">Date</th><th scope="col">File</th></tr></thead>
+            <tbody id="ir-rows"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="ir-empty" hidden>
+          <svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg>
+          <p><strong>No documents for the selected year.</strong><br>Choose another year or &ldquo;All years&rdquo;.</p>
+        </div>
+        <noscript>
+          <p>Documents: <a href="https://www.macpl-aitg.co/images/financials/MACPL-Annual-Return-2021-2022.pdf">Annual return FY 2021&ndash;22 (PDF)</a> &middot; <a href="https://www.macpl-aitg.co/images/financials/MACPL-CSR-Policy-2022.pdf">CSR policy 2022 (PDF)</a></p>
+        </noscript>
+
+        <div class="contact-card" id="ir-contact" hidden>
+          <h3>Investor contact</h3>
+          <!-- TODO: name and designation of the investor contact / compliance officer -->
+          <dl>
+            <div><dt>Contact</dt><dd>Name to be confirmed<br>Company Secretary / Compliance Officer</dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:info@macpl.com">info@macpl.com</a></dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+912406625613">+91 240 6625613</a><br><a href="tel:+912406625614">+91 240 6625614</a></dd></div>
+            <div><dt>Registered office</dt><dd>E-63, MIDC Waluj, Aurangabad (Chhatrapati Sambhajinagar), Maharashtra 431136</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

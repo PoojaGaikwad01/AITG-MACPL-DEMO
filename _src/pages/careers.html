@@ -1,0 +1,66 @@
+<main id="main">
+{{PAGE_HERO}}
+
+  <!-- OPENINGS (DEMO PLACEHOLDERS: replace in _src/content.mjs) -->
+  <section id="openings" class="section" aria-labelledby="openings-title">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__text">
+          <p class="eyebrow">Join us</p>
+          <h2 id="openings-title">Current openings</h2>
+          <p class="lead">Roles open at our Waluj plants.</p>
+        </div>
+        <span class="tag tag--muted">Placeholder openings</span>
+      </div>
+      <ul class="openings">{{OPENINGS}}
+      </ul>
+    </div>
+  </section>
+
+  <!-- APPLICATION FORM -->
+  <section id="apply" class="section section--surface" aria-labelledby="apply-title">
+    <div class="container form-layout">
+      <div>
+        <p class="eyebrow">Apply</p>
+        <h2 id="apply-title">Send your application</h2>
+        <p class="lead">No matching role? Send a general application.</p>
+        <ul class="perks">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>In-house Welding Training Centre</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>TPM-driven shop floors across three units</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>Part of the AITG group</li>
+        </ul>
+      </div>
+      <!-- TODO: connect to the client's form endpoint / HR inbox before launch -->
+      <form class="form" data-demo-form data-success="Thank you. Your application has been received." enctype="multipart/form-data">
+        <div class="field">
+          <label for="app-name">Full name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="app-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="app-email">Email <span class="req" aria-hidden="true">*</span></label>
+          <input type="email" id="app-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="app-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="app-phone" name="phone" autocomplete="tel" required>
+        </div>
+        <div class="field">
+          <label for="app-position">Position <span class="req" aria-hidden="true">*</span></label>
+          <select id="app-position" name="position" required>
+            <option value="">Select a position</option>{{POSITION_OPTIONS}}
+          </select>
+        </div>
+        <div class="field field--full">
+          <label for="app-resume">Resume <span class="req" aria-hidden="true">*</span></label>
+          <input type="file" id="app-resume" name="resume" accept=".pdf,.doc,.docx" aria-describedby="app-resume-hint" required>
+          <span class="field__hint" id="app-resume-hint">PDF or Word, up to 5 MB.</span>
+        </div>
+        <div class="form__actions">
+          <button class="btn btn--primary" type="submit">Submit application</button>
+          <span class="form__note">Fields marked * are required.</span>
+        </div>
+        <p class="form__status" role="status" tabindex="-1" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
