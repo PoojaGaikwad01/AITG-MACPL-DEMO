@@ -1,0 +1,113 @@
+<main id="main">
+
+  <!-- HERO: ONE <video>. The A/B/C demo switch only changes data-variant (layout), never the video element. -->
+  <section class="hero" id="hero" data-variant="a" aria-labelledby="hero-title">
+    <div class="hero__stage">
+      <div class="hero__media">
+        <!-- TODO: replace with final MACPL factory footage (tube bending, robotic welding, heat treatment, casting).
+             Keep 10–20 s, muted, 1280×720: hero.webm (VP9) + hero.mp4 (H.264, faststart) + hero-mobile.mp4 (640×360). -->
+        <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero/hero-poster.jpg" disablepictureinpicture aria-hidden="true" tabindex="-1">
+          <source media="(max-width: 768px)" src="assets/video/hero-mobile.mp4" type="video/mp4">
+          <source src="assets/video/hero.webm" type="video/webm">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero__overlay" aria-hidden="true"></div>
+      </div>
+      <button class="hero__video-toggle" type="button" aria-label="Pause background video">
+        <span class="i-pause"><svg class="icon" aria-hidden="true"><use href="#i-pause"></use></svg></span>
+        <span class="i-play" hidden><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg></span>
+      </button>
+      <div class="hero__content">
+        <div class="container">
+          <div class="hero__text">
+            <p class="hero__eyebrow">Marathwada Auto Compo &middot; An AITG company</p>
+            <h1 id="hero-title">Safety-critical components for leading OEMs since 1997</h1>
+            <p class="hero__lead">We develop and mass-produce steering, suspension and chassis assemblies, and critical fabrications for earth-moving equipment.</p>
+            <a class="btn btn--primary" href="capabilities.html">Explore capabilities <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY -->
+  <section class="trusted" aria-label="Customers">
+    <div class="container trusted__inner">
+      <p class="trusted__label">Trusted by</p>
+      <ul class="trusted__list">
+        <li>JCB</li><li>Bajaj</li><li>TVS</li><li>Piaggio</li><li>Hyundai</li><li class="trusted__more">and other leading OEMs</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT INTRO + KEY FACTS -->
+  <section class="section" aria-labelledby="intro-title">
+    <div class="container intro">
+      <div>
+        <p class="eyebrow">About MACPL</p>
+        <h2 id="intro-title">Precise products for critical functions</h2>
+        <p class="lead">Safety-critical parts, developed and built in-house since 1997.</p>
+        <a class="link-arrow" href="about.html">Our story <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </div>
+      <ul class="facts">
+        <li class="fact"><span class="fact__value">1997</span><span class="fact__label">Founded by two technocrats</span></li>
+        <li class="fact"><span class="fact__value">12+</span><span class="fact__label">OEM customers</span></li>
+        <li class="fact"><span class="fact__value">3</span><span class="fact__label">Manufacturing units</span></li>
+        <li class="fact"><span class="fact__value">AITG</span><span class="fact__label">Group company</span></li>
+      </ul>
+    </div>
+  </section>
+{{CAPS_SECTION_HOME}}
+
+  <!-- PRODUCT CATEGORIES -->
+  <section class="section section--surface" aria-labelledby="markets-title">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__text">
+          <p class="eyebrow">Products</p>
+          <h2 id="markets-title">Where our parts go</h2>
+          <p class="lead">Components for four sectors, from tractors to EV two-wheelers.</p>
+        </div>
+        <a class="link-arrow" href="products.html">All products <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </div>
+      <ul class="cat-grid">{{CATEGORY_CARDS}}
+      </ul>
+    </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section class="section" aria-labelledby="news-title">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__text">
+          <p class="eyebrow">News &amp; media</p>
+          <h2 id="news-title">Latest from MACPL</h2>
+          <p class="lead">Certifications, initiatives and life at our plants.</p>
+        </div>
+        <a class="link-arrow" href="news.html">All news <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </div>
+      <ul class="grid grid--news">{{NEWS_HOME}}
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA STRIP: the only one on the site -->
+  <section class="cta-strip" aria-labelledby="cta-title">
+    <div class="container cta-strip__inner">
+      <div>
+        <h2 id="cta-title">Have a component requirement?</h2>
+        <p>Share your drawing or specification.</p>
+      </div>
+      <a class="btn btn--primary" href="contact.html#enquiry">Contact us <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+    </div>
+  </section>
+</main>
+
+<!-- DEMO ONLY: hero option switcher. Delete this block, the "DEMO ONLY" part of initHero() in main.js
+     and the .demo-switch CSS before launch. Also supports ?hero=a|b|c in the URL. -->
+<div class="demo-switch" role="group" aria-label="Hero option (demo only)">
+  <span class="demo-switch__label" aria-hidden="true">Hero option</span>
+  <button type="button" data-hero="a" aria-pressed="true" aria-label="Hero option A, full-bleed video">A</button>
+  <button type="button" data-hero="b" aria-pressed="false" aria-label="Hero option B, framed video">B</button>
+  <button type="button" data-hero="c" aria-pressed="false" aria-label="Hero option C, split layout">C</button>
+</div>

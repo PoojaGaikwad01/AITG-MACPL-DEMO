@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marathwada Auto Compo Pvt. Ltd. | Precise products for critical functions</title>
+<meta name="description" content="MACPL, an AITG company, develops and mass-manufactures safety-critical steering, suspension and chassis components and assemblies for leading OEMs since 1997.">
+<meta name="theme-color" content="#004282">
+<link rel="icon" href="data:,"><!-- TODO: official favicon from the AITG Brand Manual -->
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="preload" as="image" href="assets/img/hero/hero-poster.jpg" fetchpriority="high">
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+<!-- Icon sprite (used via <svg><use href="#i-name"></use></svg>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <!-- One line-icon set: 24px grid, 1.5px non-scaling stroke (colour and stroke width come from .icon in styles.css) -->
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M5 4h3.5l1.5 4-2 1.5a11 11 0 0 0 6.5 6.5L16 14l4 1.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect vector-effect="non-scaling-stroke" x="3" y="5" width="18" height="14" rx="2"/><path vector-effect="non-scaling-stroke" d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle vector-effect="non-scaling-stroke" cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path vector-effect="non-scaling-stroke" d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect vector-effect="non-scaling-stroke" x="3" y="7" width="18" height="13" rx="2"/><path vector-effect="non-scaling-stroke" d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle vector-effect="non-scaling-stroke" cx="12" cy="12" r="9"/><path vector-effect="non-scaling-stroke" d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ===================== HEADER (identical on every page) ===================== -->
+<header class="site-header">
+  <div class="container header__inner">
+    <a class="brand" href="index.html">
+      <!-- TODO: swap for the official MACPL division logo file (on-white version) from the Brand Manual -->
+      <img src="assets/img/logo/macpl-logo.png" width="800" height="112" alt="Marathwada Auto Compo Pvt. Ltd., an AITG company: home">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="nav-toggle__bars" aria-hidden="true"></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="capabilities.html">Capabilities</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="investor-relations.html">Investor relations</a></li>
+        <li><a href="news.html">News &amp; media</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO: ONE <video>. The A/B/C demo switch only changes data-variant (layout), never the video element. -->
+  <section class="hero" id="hero" data-variant="a" aria-labelledby="hero-title">
+    <div class="hero__stage">
+      <div class="hero__media">
+        <!-- TODO: replace with final MACPL factory footage (tube bending, robotic welding, heat treatment, casting).
+             Keep 10–20 s, muted, 1280×720: hero.webm (VP9) + hero.mp4 (H.264, faststart) + hero-mobile.mp4 (640×360). -->
+        <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero/hero-poster.jpg" disablepictureinpicture aria-hidden="true" tabindex="-1">
+          <source media="(max-width: 768px)" src="assets/video/hero-mobile.mp4" type="video/mp4">
+          <source src="assets/video/hero.webm" type="video/webm">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero__overlay" aria-hidden="true"></div>
+      </div>
+      <button class="hero__video-toggle" type="button" aria-label="Pause background video">
+        <span class="i-pause"><svg class="icon" aria-hidden="true"><use href="#i-pause"></use></svg></span>
+        <span class="i-play" hidden><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg></span>
+      </button>
+      <div class="hero__content">
+        <div class="container">
+          <div class="hero__text">
+            <p class="hero__eyebrow">Marathwada Auto Compo &middot; An AITG company</p>
+            <h1 id="hero-title">Safety-critical components for leading OEMs since 1997</h1>
+            <p class="hero__lead">We develop and mass-produce steering, suspension and chassis assemblies, and critical fabrications for earth-moving equipment.</p>
+            <a class="btn btn--primary" href="capabilities.html">Explore capabilities <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY -->
+  <section class="trusted" aria-label="Customers">
+    <div class="container trusted__inner">
+      <p class="trusted__label">Trusted by</p>
+      <ul class="trusted__list">
+        <li>JCB</li><li>Bajaj</li><li>TVS</li><li>Piaggio</li><li>Hyundai</li><li class="trusted__more">and other leading OEMs</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT INTRO + KEY FACTS -->
+  <section class="section" aria-labelledby="intro-title">
+    <div class="container intro">
+      <div>
+        <p class="eyebrow">About MACPL</p>
+        <h2 id="intro-title">Precise products for critical functions</h2>
+        <p class="lead">Safety-critical parts, developed and built in-house since 1997.</p>
+        <a class="link-arrow" href="about.html">Our story <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </div>
+      <ul class="facts">
+        <li class="fact"><span class="fact__value">1997</span><span class="fact__label">Founded by two technocrats</span></li>
+        <li class="fact"><span class="fact__value">12+</span><span class="fact__label">OEM customers</span></li>
+        <li class="fact"><span class="fact__value">3</span><span class="fact__label">Manufacturing units</span></li>
+        <li class="fact"><span class="fact__value">AITG</span><span class="fact__label">Group company</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES: replicates the macpl-iota capabilities section (numbered process list + framed image panel).
+       No auto-advance or progress animation; brand-blue tints replace the orange/yellow accents. -->
+  <section class="section section--dark on-dark" aria-labelledby="caps-title">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__text">
+          <p class="eyebrow">Capabilities</p>
+          <h2 id="caps-title">Six processes. <span class="tint">One roof.</span></h2>
+          <p class="lead">Every critical process stays in-house, under our control.</p>
+        </div>
+      </div>
+      <div class="caps" data-caps>
+        <div class="caps__nav">
+          <div class="caps__tabs" role="tablist" aria-label="Capabilities">
+          <button class="cap-tab" type="button" role="tab" id="cap-tab-tube-bending" aria-controls="cap-panel-tube-bending" aria-selected="true">
+            <span class="cap-tab__n">01</span>
+            <span class="cap-tab__title">Tube bending</span>
+            <span class="cap-tab__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
+            <span class="cap-tab__meta">CNC cold and robotic hot bending</span>
+          </button>
+          <button class="cap-tab" type="button" role="tab" id="cap-tab-welding" aria-controls="cap-panel-welding" aria-selected="false" tabindex="-1">
+            <span class="cap-tab__n">02</span>
+            <span class="cap-tab__title">Welding and fabrication</span>
+            <span class="cap-tab__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
+            <span class="cap-tab__meta">Two-stage welding of heavy fabrications</span>
+          </button>
+          <button class="cap-tab" type="button" role="tab" id="cap-tab-heat-treatment" aria-controls="cap-panel-heat-treatment" aria-selected="false" tabindex="-1">
+            <span class="cap-tab__n">03</span>
+            <span class="cap-tab__title">Heat treatment</span>
+            <span class="cap-tab__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
+            <span class="cap-tab__meta">Furnaces designed and built in-house</span>
+          </button>
+          <button class="cap-tab" type="button" role="tab" id="cap-tab-casting" aria-controls="cap-panel-casting" aria-selected="false" tabindex="-1">
+            <span class="cap-tab__n">04</span>
+            <span class="cap-tab__title">Aluminium gravity die casting</span>
+            <span class="cap-tab__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
+            <span class="cap-tab__meta">Nearly 20 years of die casting</span>
+          </button>
+          <button class="cap-tab" type="button" role="tab" id="cap-tab-plasma-cutting" aria-controls="cap-panel-plasma-cutting" aria-selected="false" tabindex="-1">
+            <span class="cap-tab__n">05</span>
+            <span class="cap-tab__title">Plasma and gas cutting</span>
+            <span class="cap-tab__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
+            <span class="cap-tab__meta">Profile cutting for fabricated parts</span>
+          </button>
+          <button class="cap-tab" type="button" role="tab" id="cap-tab-assembly" aria-controls="cap-panel-assembly" aria-selected="false" tabindex="-1">
+            <span class="cap-tab__n">06</span>
+            <span class="cap-tab__title">Components and assemblies</span>
+            <span class="cap-tab__arrow" aria-hidden="true"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span>
+            <span class="cap-tab__meta">From child parts to full assemblies</span>
+          </button>
+          </div>
+          <a class="link-arrow link-arrow--light caps__more" href="capabilities.html">All capabilities <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+        </div>
+        <div class="caps__panels">
+        <div class="caps__panel" role="tabpanel" id="cap-panel-tube-bending" aria-labelledby="cap-tab-tube-bending" tabindex="0">
+          <div class="caps__frame"><img src="assets/img/capabilities/tube-bending.jpg" width="960" height="720" alt="Robot loading a red-hot tube into a bending press" loading="lazy" decoding="async"></div>
+          <div class="caps__info">
+            <div>
+              <p>Cold and hot bending on CNC and robotic lines, with induction heating.</p>
+              <ul class="chips"><li class="chip chip--dark">CNC cold bending</li><li class="chip chip--dark">Robotic hot bending</li><li class="chip chip--dark">Induction heating</li></ul>
+            </div>
+            <div>
+              <div class="stat-box"><p class="stat-box__meta">Capacity</p><p class="stat-box__text">2,000+ parts a day, cold and hot</p></div>
+              <a class="link-arrow link-arrow--light" href="capabilities.html#tube-bending">Process details<span class="visually-hidden">: Tube bending</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="caps__panel" role="tabpanel" id="cap-panel-welding" aria-labelledby="cap-tab-welding" tabindex="0" hidden>
+          <div class="caps__frame"><img src="assets/img/capabilities/welding.jpg" width="960" height="720" alt="Welder at work with sparks flying" loading="lazy" decoding="async"></div>
+          <div class="caps__info">
+            <div>
+              <p>Trained welders and robotic cells produce consistent, reliable joints on heavy fabrications.</p>
+              <ul class="chips"><li class="chip chip--dark">Tack welding</li><li class="chip chip--dark">Full welding</li><li class="chip chip--dark">Overhead conveyors</li></ul>
+            </div>
+            <div>
+              <div class="stat-box"><p class="stat-box__meta">Training</p><p class="stat-box__text">In-house Welding Training Centre</p></div>
+              <a class="link-arrow link-arrow--light" href="capabilities.html#welding">Process details<span class="visually-hidden">: Welding and fabrication</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="caps__panel" role="tabpanel" id="cap-panel-heat-treatment" aria-labelledby="cap-tab-heat-treatment" tabindex="0" hidden>
+          <div class="caps__frame"><img src="assets/img/capabilities/heat-treatment.jpg" width="960" height="720" alt="Bent tubes on a rack leaving a glowing furnace" loading="lazy" decoding="async"></div>
+          <div class="caps__info">
+            <div>
+              <p>In-house furnaces deliver the required microstructure under tightly controlled parameters.</p>
+              <ul class="chips"><li class="chip chip--dark">Stress relieving</li><li class="chip chip--dark">Normalising</li><li class="chip chip--dark">In-house furnaces</li></ul>
+            </div>
+            <div>
+              <div class="stat-box"><p class="stat-box__meta">Furnaces</p><p class="stat-box__text">Designed and built in-house</p></div>
+              <a class="link-arrow link-arrow--light" href="capabilities.html#heat-treatment">Process details<span class="visually-hidden">: Heat treatment</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="caps__panel" role="tabpanel" id="cap-panel-casting" aria-labelledby="cap-tab-casting" tabindex="0" hidden>
+          <div class="caps__frame"><img src="assets/img/capabilities/casting.jpg" width="960" height="720" alt="Foundry workers pouring molten metal" loading="lazy" decoding="async"></div>
+          <div class="caps__info">
+            <div>
+              <p>Gravity die castings from in-house alloy, with strict control for zero blow holes.</p>
+              <ul class="chips"><li class="chip chip--dark">Gravity die</li><li class="chip chip--dark">In-house alloy</li><li class="chip chip--dark">Zero blow holes</li></ul>
+            </div>
+            <div>
+              <div class="stat-box"><p class="stat-box__meta">Experience</p><p class="stat-box__text">Nearly 20 years of die casting</p></div>
+              <a class="link-arrow link-arrow--light" href="capabilities.html#casting">Process details<span class="visually-hidden">: Aluminium gravity die casting</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="caps__panel" role="tabpanel" id="cap-panel-plasma-cutting" aria-labelledby="cap-tab-plasma-cutting" tabindex="0" hidden>
+          <div class="caps__frame"><img src="assets/img/capabilities/plasma-cutting.jpg" width="960" height="720" alt="Plasma torch cutting a steel plate" loading="lazy" decoding="async"></div>
+          <div class="caps__info">
+            <div>
+              <p>Plasma and gas profile cutting for accurate plate blanks.</p>
+              <ul class="chips"><li class="chip chip--dark">Plasma cutting</li><li class="chip chip--dark">Gas cutting</li><li class="chip chip--dark">Profile blanks</li></ul>
+            </div>
+            <div>
+              <div class="stat-box"><p class="stat-box__meta">In-house</p><p class="stat-box__text">Blanks feed our own fabrication lines</p></div>
+              <a class="link-arrow link-arrow--light" href="capabilities.html#plasma-cutting">Process details<span class="visually-hidden">: Plasma and gas cutting</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="caps__panel" role="tabpanel" id="cap-panel-assembly" aria-labelledby="cap-tab-assembly" tabindex="0" hidden>
+          <div class="caps__frame"><img src="assets/img/capabilities/assembly.jpg" width="960" height="720" alt="Telescopic suspension fork assembly made by MACPL" loading="lazy" decoding="async"></div>
+          <div class="caps__info">
+            <div>
+              <p>Steering, suspension and chassis assemblies built from our own child parts.</p>
+              <ul class="chips"><li class="chip chip--dark">Steering columns</li><li class="chip chip--dark">Suspension forks</li><li class="chip chip--dark">Chassis frames</li></ul>
+            </div>
+            <div>
+              <div class="stat-box"><p class="stat-box__meta">Scope</p><p class="stat-box__text">Child parts to finished assemblies</p></div>
+              <a class="link-arrow link-arrow--light" href="capabilities.html#assembly">Process details<span class="visually-hidden">: Components and assemblies</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section class="section section--surface" aria-labelledby="markets-title">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__text">
+          <p class="eyebrow">Products</p>
+          <h2 id="markets-title">Where our parts go</h2>
+          <p class="lead">Components for four sectors, from tractors to EV two-wheelers.</p>
+        </div>
+        <a class="link-arrow" href="products.html">All products <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </div>
+      <ul class="cat-grid">
+        <li><a class="cat-card" href="products.html?cat=agri">
+          <div class="cat-card__img"><img src="assets/img/products/p01-front-axle-tractor.jpg" width="600" height="400" alt="" loading="lazy" decoding="async"></div>
+          <div class="cat-card__body">
+            <span class="cat-card__n">01</span>
+            <h3 class="card-title">Agriculture</h3>
+            <span class="cat-card__desc">Front axle assemblies for tractors.</span>
+            <span class="cat-card__count">1 product</span>
+          </div>
+        </a></li>
+        <li><a class="cat-card" href="products.html?cat=earth">
+          <div class="cat-card__img"><img src="assets/img/products/p03-dozer-blade.jpg" width="600" height="400" alt="" loading="lazy" decoding="async"></div>
+          <div class="cat-card__body">
+            <span class="cat-card__n">02</span>
+            <h3 class="card-title">Earth moving</h3>
+            <span class="cat-card__desc">Bucket links, dozer blades, engine frames, link arms, chassis frames and star plates.</span>
+            <span class="cat-card__count">8 products</span>
+          </div>
+        </a></li>
+        <li><a class="cat-card" href="products.html?cat=3w">
+          <div class="cat-card__img"><img src="assets/img/products/p11-steering-column-3w-cargo.jpg" width="600" height="400" alt="" loading="lazy" decoding="async"></div>
+          <div class="cat-card__body">
+            <span class="cat-card__n">03</span>
+            <h3 class="card-title">3 wheelers</h3>
+            <span class="cat-card__desc">Front forks, steering columns and EV suspension forks.</span>
+            <span class="cat-card__count">6 products</span>
+          </div>
+        </a></li>
+        <li><a class="cat-card" href="products.html?cat=2w">
+          <div class="cat-card__img"><img src="assets/img/products/p18-suspension-fork-2w-ev-disc.jpg" width="600" height="400" alt="" loading="lazy" decoding="async"></div>
+          <div class="cat-card__body">
+            <span class="cat-card__n">04</span>
+            <h3 class="card-title">2 wheelers &amp; EV</h3>
+            <span class="cat-card__desc">Under-bracket assemblies and EV suspension forks.</span>
+            <span class="cat-card__count">4 products</span>
+          </div>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section class="section" aria-labelledby="news-title">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__text">
+          <p class="eyebrow">News &amp; media</p>
+          <h2 id="news-title">Latest from MACPL</h2>
+          <p class="lead">Certifications, initiatives and life at our plants.</p>
+        </div>
+        <a class="link-arrow" href="news.html">All news <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </div>
+      <ul class="grid grid--news">
+        <li data-cat="certifications">
+          <article class="news-card" data-modal-item>
+            <img class="news-card__img" src="assets/img/news/iso-certification.jpg" width="800" height="450" alt="MACPL employees at a training session" loading="lazy" decoding="async">
+            <div class="news-card__body">
+              <p class="news-meta"><span class="tag">Certification</span><span>Date TBC</span></p>
+              <h3 class="news-card__title card-title">MACPL achieves ISO 9001, ISO 14001 and OHSAS 18001 certification</h3>
+              <p class="news-card__excerpt">Quality, environment and safety systems certified by TÜV Nord auditors.</p>
+              <button class="link-arrow" type="button" data-modal-open aria-haspopup="dialog">Read more<span class="visually-hidden">: MACPL achieves ISO 9001, ISO 14001 and OHSAS 18001 certification</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+            </div>
+            <div class="modal-src" hidden>
+              <p class="news-meta"><span class="tag">Certification</span><span>Date TBC</span></p>
+              <h2>MACPL achieves ISO 9001, ISO 14001 and OHSAS 18001 certification</h2>
+              <p>MACPL has implemented integrated quality, environment and occupational health and safety management systems, certified to ISO 9001, ISO 14001 and OHSAS 18001 by TÜV Nord auditors.</p>
+            </div>
+          </article>
+        </li>
+        <li data-cat="csr">
+          <article class="news-card" data-modal-item>
+            <img class="news-card__img" src="assets/img/news/world-environment-day-2016.jpg" width="800" height="450" alt="MACPL team volunteers on World Environment Day" loading="lazy" decoding="async">
+            <div class="news-card__body">
+              <p class="news-meta"><span class="tag">Environment</span><time datetime="2016-06-05">5 June 2016</time></p>
+              <h3 class="news-card__title card-title">World Environment Day: 130 trees planted at MIDC Waluj</h3>
+              <p class="news-card__excerpt">The MACPL team planted around 130 trees along the main road of MIDC Waluj.</p>
+              <button class="link-arrow" type="button" data-modal-open aria-haspopup="dialog">Read more<span class="visually-hidden">: World Environment Day: 130 trees planted at MIDC Waluj</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+            </div>
+            <div class="modal-src" hidden>
+              <p class="news-meta"><span class="tag">Environment</span><time datetime="2016-06-05">5 June 2016</time></p>
+              <h2>World Environment Day: 130 trees planted at MIDC Waluj</h2>
+              <p>On World Environment Day, 5 June 2016, the MACPL team planted around 130 trees along the main road of MIDC Waluj as part of the AITG Go Green initiative.</p>
+            </div>
+          </article>
+        </li>
+        <li data-cat="events">
+          <!-- DEMO PLACEHOLDER story: replace text and image -->
+          <article class="news-card" data-modal-item>
+            <img class="news-card__img" src="assets/img/capabilities/welding.jpg" width="960" height="720" alt="Welder at work" loading="lazy" decoding="async">
+            <div class="news-card__body">
+              <p class="news-meta"><span class="tag">Events</span><span>Date TBC</span><span class="tag tag--muted">Placeholder</span></p>
+              <h3 class="news-card__title card-title">Safety week across all three plants</h3>
+              <p class="news-card__excerpt">Placeholder. Replace with a real event: drills, training and safety awards.</p>
+              <button class="link-arrow" type="button" data-modal-open aria-haspopup="dialog">Read more<span class="visually-hidden">: Safety week across all three plants</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+            </div>
+            <div class="modal-src" hidden>
+              <p class="news-meta"><span class="tag">Events</span><span>Date TBC</span><span class="tag tag--muted">Placeholder</span></p>
+              <h2>Safety week across all three plants</h2>
+              <p>Placeholder story for the demo. Replace it with a real event from MACPL.</p>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA STRIP: the only one on the site -->
+  <section class="cta-strip" aria-labelledby="cta-title">
+    <div class="container cta-strip__inner">
+      <div>
+        <h2 id="cta-title">Have a component requirement?</h2>
+        <p>Share your drawing or specification.</p>
+      </div>
+      <a class="btn btn--primary" href="contact.html#enquiry">Contact us <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+    </div>
+  </section>
+</main>
+
+<!-- DEMO ONLY: hero option switcher. Delete this block, the "DEMO ONLY" part of initHero() in main.js
+     and the .demo-switch CSS before launch. Also supports ?hero=a|b|c in the URL. -->
+<div class="demo-switch" role="group" aria-label="Hero option (demo only)">
+  <span class="demo-switch__label" aria-hidden="true">Hero option</span>
+  <button type="button" data-hero="a" aria-pressed="true" aria-label="Hero option A, full-bleed video">A</button>
+  <button type="button" data-hero="b" aria-pressed="false" aria-label="Hero option B, framed video">B</button>
+  <button type="button" data-hero="c" aria-pressed="false" aria-label="Hero option C, split layout">C</button>
+</div>
+
+<!-- ===================== FOOTER (identical on every page) =====================
+     Background exactly #004282 so the official on-blue (white-text) logo may be used. -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <!-- Official MACPL logo, white-text version (placeholder source: https://www.macpl-aitg.co/images/logo.png).
+           TODO: replace with the high-resolution file from the AITG Brand Manual. -->
+      <a class="footer-logo" href="index.html"><img src="assets/img/logo/macpl-logo-white.png" width="415" height="54" alt="Marathwada Auto Compo Pvt. Ltd., an AITG company: home" loading="lazy" decoding="async"></a>
+      <p class="footer-tagline">Precise products for critical functions. Safety-critical components for leading OEMs since 1997.</p>
+      <ul class="footer-contact">
+        <li><a href="tel:+912406625613">+91 240 6625613</a> / <a href="tel:+912406625614" aria-label="+91 240 6625614">6625614</a></li>
+        <li><a href="mailto:info@macpl.com">info@macpl.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-grid">
+      <nav aria-labelledby="ft-capabilities">
+        <h2 class="footer-title" id="ft-capabilities">Capabilities</h2>
+        <ul>
+          <li><a href="capabilities.html#tube-bending">Tube bending</a></li>
+          <li><a href="capabilities.html#welding">Welding and fabrication</a></li>
+          <li><a href="capabilities.html#heat-treatment">Heat treatment</a></li>
+          <li><a href="capabilities.html#casting">Aluminium die casting</a></li>
+          <li><a href="capabilities.html#plasma-cutting">Plasma and gas cutting</a></li>
+          <li><a href="capabilities.html#assembly">Components and assemblies</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="ft-company">
+        <h2 class="footer-title" id="ft-company">Company</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#vision-values">Vision &amp; values</a></li>
+          <li><a href="about.html#board">Leadership</a></li>
+          <li><a href="investor-relations.html">Investor relations</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="ft-explore">
+        <h2 class="footer-title" id="ft-explore">Explore</h2>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="news.html">News &amp; media</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer-office">
+        <div class="footer-office__addr">
+          <h2 class="footer-title">Registered office</h2>
+          <address>E-63, MIDC Waluj, Aurangabad<br>(Chhatrapati Sambhajinagar)<br>Maharashtra 431136, India</address>
+        </div>
+        <div class="footer-office__group">
+          <h2 class="footer-title">AITG group</h2>
+          <!-- TODO: confirm group company URLs -->
+          <ul class="footer-group">
+            <li><a href="http://aitg.co/" target="_blank" rel="noopener">Applied Innovation &amp; Technology Group LLP</a></li>
+            <li><a href="http://www.uacpl-aitg.co/" target="_blank" rel="noopener">Umasons Autocompo Pvt. Ltd.</a></li>
+            <li><a href="http://bhogaleauto.com/" target="_blank" rel="noopener">Bhogale Automotive Pvt. Ltd.</a></li>
+            <li><a href="http://www.precifabengineers.com/" target="_blank" rel="noopener">Preci Fab Engineers Pvt. Ltd.</a></li>
+            <li><a href="http://aitg.co/" target="_blank" rel="noopener">Technocraft Toolings</a></li>
+            <li><a href="http://aitg.co/" target="_blank" rel="noopener">iInvent Labs Pvt. Ltd.</a></li>
+            <li><a href="http://www.umasonssteelfab.net/" target="_blank" rel="noopener">Umasons Steel Fab Pvt. Ltd.&nbsp;<span class="footer-assoc">(associate)</span></a></li>
+            <li><a href="http://www.bhogalecoating.com/" target="_blank" rel="noopener">Bhogales Coatings &amp; Paints Pvt. Ltd.&nbsp;<span class="footer-assoc">(associate)</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Marathwada Auto Compo Pvt. Ltd.</span>
+      <span>CIN: U29130MH1988PTC046951</span>
+    </div>
+  </div>
+  <div class="footer-bar" aria-hidden="true"></div>
+</footer>
+
+<!-- Shared modal: profiles and news stories (filled by main.js) -->
+<dialog class="modal" id="modal">
+  <div class="modal__inner">
+    <button class="modal__close" type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"></use></svg></button>
+    <div class="modal__body"></div>
+  </div>
+</dialog>
+</body>
+</html>

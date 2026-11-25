@@ -1,0 +1,145 @@
+<main id="main">
+{{PAGE_HERO}}
+
+  <nav class="anchor-bar" aria-label="On this page">
+    <div class="container">
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#vision-values">Vision &amp; values</a></li>
+        <li><a href="#board">Board of directors</a></li>
+        <li><a href="#management">Management</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="section about-section" aria-labelledby="overview-title">
+    <div class="container overview">
+      <div class="prose">
+        <p class="eyebrow">Overview</p>
+        <h2 id="overview-title">Complex parts. Record timelines.</h2>
+        <p class="lead">Founded in 1997 by technocrats Ram Bhogale and Ajit Soundalgekar.</p>
+        <p>MACPL began by making steering columns for scooters and three-wheelers. By 2000 we were known for developing products, and the lines that make them, in record time.</p>
+        <p>Today more than a dozen OEMs rely on us for steering and suspension assemblies and for critical fabrications for earth-moving equipment.</p>
+        <p>TPM (Total Productive Maintenance) drives shop-floor efficiency, supported by in-house design and SAP-based administration.</p>
+        <ol class="timeline">
+          <li><span class="timeline__year">1997</span><span class="timeline__text">Founded to make steering columns for scooters and three-wheelers.</span></li>
+          <li><span class="timeline__year">2000</span><span class="timeline__text">Known for developing products and their lines in record time.</span></li>
+          <li><span class="timeline__year">Today</span><span class="timeline__text">Steering and suspension assemblies and critical fabrications.</span></li>
+        </ol>
+      </div>
+      <div>
+        <figure class="overview__figure">
+          <!-- TODO: replace stock photo with a MACPL shop-floor photograph -->
+          <img src="assets/img/about/shop-floor.jpg" width="800" height="600" alt="Welder at work on a fabricated steel component" loading="lazy" decoding="async">
+        </figure>
+        <div class="group-note">
+          <h3>Part of the AITG group</h3>
+          <p>The Applied Innovation &amp; Technology Group began with Nirlep Appliances in 1968. It now spans auto components, steel fabrication, coatings and consumer durables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION & VALUES (layout follows macpl-aitg-lighter; value accent bars per the AITG Brand Manual) -->
+  <section id="vision-values" class="section section--surface about-section" aria-labelledby="vv-title">
+    <div class="container">
+      <div class="vision">
+        <div>
+          <p class="eyebrow">Vision &amp; values</p>
+          <h2 id="vv-title">Where we aim to go</h2>
+          <p class="lead">One vision and six values, shared by every AITG company.</p>
+        </div>
+        <figure class="vision-card">
+          <blockquote><p>To be a well respected <span class="accent">Innovative Group</span> that is most preferred as a partner in progress <span class="accent">Globally</span></p></blockquote>
+          <figcaption>AITG group vision</figcaption>
+        </figure>
+      </div>
+      <ul class="value-grid">
+        <li class="value-card value-card--integrity">
+          <p class="value-card__n">01</p>
+          <h3>Integrity</h3>
+          <ul>
+            <li>Integrity means &ldquo;say what you believe and do what you say&rdquo;.</li>
+            <li>We hold everyone in the group to the highest standard.</li>
+            <li>We respect the integrity of others as much as our own.</li>
+          </ul>
+        </li>
+        <li class="value-card value-card--commitment">
+          <p class="value-card__n">02</p>
+          <h3>Commitment</h3>
+          <ul>
+            <li>Commitment is complete devotion to work and responsibility.</li>
+            <li>It shows in every action and makes us a reliable partner.</li>
+          </ul>
+        </li>
+        <li class="value-card value-card--compassion">
+          <p class="value-card__n">03</p>
+          <h3>Compassion</h3>
+          <ul>
+            <li>Compassion is kind concern for every human being.</li>
+            <li>People are our biggest asset; we value and respect them.</li>
+            <li>We respect everyone, irrespective of capability, gender or class.</li>
+          </ul>
+        </li>
+        <li class="value-card value-card--passion">
+          <p class="value-card__n">04</p>
+          <h3>Passion</h3>
+          <ul>
+            <li>Passion is the urge to do more than expected.</li>
+            <li>We strive to go beyond the ordinary.</li>
+            <li>Our efforts aim at sustainable, all-round growth.</li>
+          </ul>
+        </li>
+        <li class="value-card value-card--innovation">
+          <p class="value-card__n">05</p>
+          <h3>Innovation</h3>
+          <ul>
+            <li>Innovation is generating and exploring new ideas.</li>
+            <li>We pursue the new and unknown without fear.</li>
+            <li>We encourage experimentation at every level, leading to applied innovation.</li>
+          </ul>
+        </li>
+        <li class="value-card value-card--roots">
+          <p class="value-card__n">06</p>
+          <h3>Proud of roots</h3>
+          <ul>
+            <li>We are proud of who we are, where we belong and our legacy.</li>
+            <li>We track global trends to anticipate change.</li>
+            <li>We adapt to changing times with our values intact.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BOARD OF DIRECTORS (follows macpl.vercel.app/about: circular photos, uniform cards) -->
+  <section id="board" class="section about-section" aria-labelledby="board-title">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__text">
+          <p class="eyebrow">Leadership</p>
+          <h2 id="board-title">Board of directors</h2>
+          <p class="lead">Decades of experience in engineering, finance and governance.</p>
+        </div>
+      </div>
+      <ul class="people people--board">{{BOARD}}
+      </ul>
+    </div>
+  </section>
+
+  <!-- TOP MANAGEMENT -->
+  <section id="management" class="section section--surface about-section" aria-labelledby="mgmt-title">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-head__text">
+          <p class="eyebrow">Leadership</p>
+          <h2 id="mgmt-title">Top management</h2>
+          <p class="lead">The team that runs our plants and business functions.</p>
+        </div>
+      </div>
+      <ul class="people people--mgmt">{{MANAGEMENT}}
+      </ul>
+    </div>
+  </section>
+</main>

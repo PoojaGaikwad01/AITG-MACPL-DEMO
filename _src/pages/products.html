@@ -1,0 +1,22 @@
+<main id="main">
+{{PAGE_HERO}}
+
+  <!-- FILTER TABS (follows macpl-iota/products). Filtering is instant, no animation. -->
+  <div class="filter-bar">
+    <div class="container filter-bar__inner">
+      <div class="filters" role="group" aria-label="Filter products by category" data-filter-group="#product-grid" data-filter-status="#product-count" data-filter-empty="#product-empty" data-filter-noun="products">{{PRODUCT_FILTERS}}
+      </div>
+      <p class="filter-bar__count" id="product-count" role="status">Showing {{PRODUCT_COUNT}} products</p>
+    </div>
+  </div>
+
+  <section class="section section--surface" aria-labelledby="product-list-title">
+    <div class="container">
+      <h2 class="visually-hidden" id="product-list-title">Product list</h2>
+      <!-- TODO: product names, one-line descriptions and photos to be confirmed by MACPL -->
+      <ul class="products-grid" id="product-grid">{{PRODUCT_CARDS}}
+      </ul>
+      <p class="empty-state" id="product-empty" hidden>No products in this category yet.</p>
+    </div>
+  </section>
+</main>
