@@ -7,8 +7,8 @@ Plain HTML5, one stylesheet, one small vanilla script. There are no frameworks, 
 
 | File | Contents |
 |---|---|
-| `index.html` | Video hero (options A/B/C), Trusted by, About intro + facts, Capabilities, Product categories, Latest news, CTA strip |
-| `about.html` | Overview, Vision & Values, Board of Directors, Top Management (profile modals) |
+| `index.html` | Video hero (options A/B/C), Trusted by (OEM logos), About intro + facts, Capabilities, Product categories, Latest news, CTA strip |
+| `about.html` | Overview, Vision & Values, Board of Directors (profile modals) |
 | `capabilities.html` | Tabbed overview + six detail sections (`#tube-bending`, `#welding`, `#heat-treatment`, `#casting`, `#plasma-cutting`, `#assembly`) |
 | `products.html` | Category filter (`?cat=agri / earth / 3w / 2w`) + product grid |
 | `investor-relations.html` | Category tabs, financial-year filter and document table (`#annual-returns`, `#policies`, …) |
@@ -27,7 +27,7 @@ python -m http.server 8080    # then open http://localhost:8080
 | What | Where |
 |---|---|
 | Colours, type scale, spacing, radii | CSS variables at the top of `assets/css/styles.css` (AITG Brand Manual palette) |
-| Mappls API key | `MAPPLS_KEY` at the top of `assets/js/main.js` |
+| Mappls API key | `MAPPLS_KEY` in `.env` (see `.env.example`) or host environment, then rebuild |
 | Plant addresses and coordinates | `PLANTS` array in `assets/js/main.js` |
 | Investor documents | `IR_DOCUMENTS` array in `assets/js/main.js` (one line per PDF) |
 | Capabilities, products, news, people, openings | `_src/content.mjs` |

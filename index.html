@@ -69,10 +69,6 @@
         </video>
         <div class="hero__overlay" aria-hidden="true"></div>
       </div>
-      <button class="hero__video-toggle" type="button" aria-label="Pause background video">
-        <span class="i-pause"><svg class="icon" aria-hidden="true"><use href="#i-pause"></use></svg></span>
-        <span class="i-play" hidden><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg></span>
-      </button>
       <div class="hero__content">
         <div class="container">
           <div class="hero__text">
@@ -91,7 +87,7 @@
     <div class="container trusted__inner">
       <p class="trusted__label">Trusted by</p>
       <ul class="trusted__list">
-        <li>JCB</li><li>Bajaj</li><li>TVS</li><li>Piaggio</li><li>Hyundai</li><li class="trusted__more">and other leading OEMs</li>
+        <li><img class="trusted__logo" src="assets/img/oem/jcb.svg" alt="JCB" loading="lazy" decoding="async"></li><li><img class="trusted__logo" src="assets/img/oem/bajaj.svg" alt="Bajaj Auto" loading="lazy" decoding="async"></li><li><img class="trusted__logo" src="assets/img/oem/tvs.svg" alt="TVS Motor Company" loading="lazy" decoding="async"></li><li><img class="trusted__logo" src="assets/img/oem/piaggio.svg" alt="Piaggio" loading="lazy" decoding="async"></li><li><img class="trusted__logo" src="assets/img/oem/hyundai.svg" alt="Hyundai" loading="lazy" decoding="async"></li><li class="trusted__more">and other leading OEMs</li>
       </ul>
     </div>
   </section>
@@ -319,13 +315,13 @@
           <article class="news-card" data-modal-item>
             <img class="news-card__img" src="assets/img/news/iso-certification.jpg" width="800" height="450" alt="MACPL employees at a training session" loading="lazy" decoding="async">
             <div class="news-card__body">
-              <p class="news-meta"><span class="tag">Certification</span><span>Date TBC</span></p>
+              <p class="news-meta"><span class="tag">Certification</span></p>
               <h3 class="news-card__title card-title">MACPL achieves ISO 9001, ISO 14001 and OHSAS 18001 certification</h3>
               <p class="news-card__excerpt">Quality, environment and safety systems certified by TÜV Nord auditors.</p>
               <button class="link-arrow" type="button" data-modal-open aria-haspopup="dialog">Read more<span class="visually-hidden">: MACPL achieves ISO 9001, ISO 14001 and OHSAS 18001 certification</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
             </div>
             <div class="modal-src" hidden>
-              <p class="news-meta"><span class="tag">Certification</span><span>Date TBC</span></p>
+              <p class="news-meta"><span class="tag">Certification</span></p>
               <h2>MACPL achieves ISO 9001, ISO 14001 and OHSAS 18001 certification</h2>
               <p>MACPL has implemented integrated quality, environment and occupational health and safety management systems, certified to ISO 9001, ISO 14001 and OHSAS 18001 by TÜV Nord auditors.</p>
             </div>
@@ -347,23 +343,6 @@
             </div>
           </article>
         </li>
-        <li data-cat="events">
-          <!-- DEMO PLACEHOLDER story: replace text and image -->
-          <article class="news-card" data-modal-item>
-            <img class="news-card__img" src="assets/img/capabilities/welding.jpg" width="960" height="720" alt="Welder at work" loading="lazy" decoding="async">
-            <div class="news-card__body">
-              <p class="news-meta"><span class="tag">Events</span><span>Date TBC</span><span class="tag tag--muted">Placeholder</span></p>
-              <h3 class="news-card__title card-title">Safety week across all three plants</h3>
-              <p class="news-card__excerpt">Placeholder. Replace with a real event: drills, training and safety awards.</p>
-              <button class="link-arrow" type="button" data-modal-open aria-haspopup="dialog">Read more<span class="visually-hidden">: Safety week across all three plants</span> <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
-            </div>
-            <div class="modal-src" hidden>
-              <p class="news-meta"><span class="tag">Events</span><span>Date TBC</span><span class="tag tag--muted">Placeholder</span></p>
-              <h2>Safety week across all three plants</h2>
-              <p>Placeholder story for the demo. Replace it with a real event from MACPL.</p>
-            </div>
-          </article>
-        </li>
       </ul>
     </div>
   </section>
@@ -380,15 +359,6 @@
   </section>
 </main>
 
-<!-- DEMO ONLY: hero option switcher. Delete this block, the "DEMO ONLY" part of initHero() in main.js
-     and the .demo-switch CSS before launch. Also supports ?hero=a|b|c in the URL. -->
-<div class="demo-switch" role="group" aria-label="Hero option (demo only)">
-  <span class="demo-switch__label" aria-hidden="true">Hero option</span>
-  <button type="button" data-hero="a" aria-pressed="true" aria-label="Hero option A, full-bleed video">A</button>
-  <button type="button" data-hero="b" aria-pressed="false" aria-label="Hero option B, framed video">B</button>
-  <button type="button" data-hero="c" aria-pressed="false" aria-label="Hero option C, split layout">C</button>
-</div>
-
 <!-- ===================== FOOTER (identical on every page) =====================
      Background exactly #004282 so the official on-blue (white-text) logo may be used. -->
 <footer class="site-footer">
@@ -396,12 +366,14 @@
     <div class="footer-top">
       <!-- Official MACPL logo, white-text version (placeholder source: https://www.macpl-aitg.co/images/logo.png).
            TODO: replace with the high-resolution file from the AITG Brand Manual. -->
-      <a class="footer-logo" href="index.html"><img src="assets/img/logo/macpl-logo-white.png" width="415" height="54" alt="Marathwada Auto Compo Pvt. Ltd., an AITG company: home" loading="lazy" decoding="async"></a>
-      <p class="footer-tagline">Precise products for critical functions. Safety-critical components for leading OEMs since 1997.</p>
-      <ul class="footer-contact">
-        <li><a href="tel:+912406625613">+91 240 6625613</a> / <a href="tel:+912406625614" aria-label="+91 240 6625614">6625614</a></li>
-        <li><a href="mailto:info@macpl.com">info@macpl.com</a></li>
-      </ul>
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html"><img src="assets/img/logo/macpl-logo-white.png" width="415" height="54" alt="Marathwada Auto Compo Pvt. Ltd., an AITG company: home" loading="lazy" decoding="async"></a>
+        <p class="footer-tagline">Precise products for critical functions. Safety-critical components for leading OEMs since 1997.</p>
+      </div>
+      <div class="footer-actions">
+        <a class="btn btn--primary btn--sm" href="contact.html#enquiry">Send an enquiry</a>
+        <a class="btn btn--ghost btn--sm" href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>+91 240 6625613</a>
+      </div>
     </div>
     <div class="footer-grid">
       <nav aria-labelledby="ft-capabilities">
@@ -420,7 +392,7 @@
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="about.html#vision-values">Vision &amp; values</a></li>
-          <li><a href="about.html#board">Leadership</a></li>
+          <li><a href="about.html#board">Board of directors</a></li>
           <li><a href="investor-relations.html">Investor relations</a></li>
           <li><a href="careers.html">Careers</a></li>
         </ul>
@@ -430,6 +402,7 @@
         <ul>
           <li><a href="products.html">Products</a></li>
           <li><a href="news.html">News &amp; media</a></li>
+          <li><a href="contact.html#locations">Plant locations</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -437,6 +410,10 @@
         <div class="footer-office__addr">
           <h2 class="footer-title">Registered office</h2>
           <address>E-63, MIDC Waluj, Aurangabad<br>(Chhatrapati Sambhajinagar)<br>Maharashtra 431136, India</address>
+          <ul class="footer-contact">
+            <li><a href="tel:+912406625613">+91 240 6625613</a> / <a href="tel:+912406625614" aria-label="+91 240 6625614">6625614</a></li>
+            <li><a href="mailto:info@macpl.com">info@macpl.com</a></li>
+          </ul>
         </div>
         <div class="footer-office__group">
           <h2 class="footer-title">AITG group</h2>
@@ -456,7 +433,10 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Marathwada Auto Compo Pvt. Ltd.</span>
-      <span>CIN: U29130MH1988PTC046951</span>
+      <span class="footer-bottom__end">
+        <span>CIN: U29130MH1988PTC046951</span>
+        <a class="to-top" href="#" aria-label="Back to top"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </span>
     </div>
   </div>
   <div class="footer-bar" aria-hidden="true"></div>

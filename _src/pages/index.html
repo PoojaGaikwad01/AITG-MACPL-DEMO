@@ -13,10 +13,6 @@
         </video>
         <div class="hero__overlay" aria-hidden="true"></div>
       </div>
-      <button class="hero__video-toggle" type="button" aria-label="Pause background video">
-        <span class="i-pause"><svg class="icon" aria-hidden="true"><use href="#i-pause"></use></svg></span>
-        <span class="i-play" hidden><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg></span>
-      </button>
       <div class="hero__content">
         <div class="container">
           <div class="hero__text">
@@ -35,7 +31,7 @@
     <div class="container trusted__inner">
       <p class="trusted__label">Trusted by</p>
       <ul class="trusted__list">
-        <li>JCB</li><li>Bajaj</li><li>TVS</li><li>Piaggio</li><li>Hyundai</li><li class="trusted__more">and other leading OEMs</li>
+        {{OEM_LOGOS}}<li class="trusted__more">and other leading OEMs</li>
       </ul>
     </div>
   </section>
@@ -102,12 +98,3 @@
     </div>
   </section>
 </main>
-
-<!-- DEMO ONLY: hero option switcher. Delete this block, the "DEMO ONLY" part of initHero() in main.js
-     and the .demo-switch CSS before launch. Also supports ?hero=a|b|c in the URL. -->
-<div class="demo-switch" role="group" aria-label="Hero option (demo only)">
-  <span class="demo-switch__label" aria-hidden="true">Hero option</span>
-  <button type="button" data-hero="a" aria-pressed="true" aria-label="Hero option A, full-bleed video">A</button>
-  <button type="button" data-hero="b" aria-pressed="false" aria-label="Hero option B, framed video">B</button>
-  <button type="button" data-hero="c" aria-pressed="false" aria-label="Hero option C, split layout">C</button>
-</div>

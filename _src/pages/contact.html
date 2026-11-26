@@ -1,7 +1,7 @@
 <main id="main">
-  <!-- CONTACT, SECTION 1 (one desktop screen): blue panel with title, contact details, plant selector and actions;
-       the Mappls map fills the right side at full height. -->
-  <section class="contact-hero" aria-labelledby="page-title">
+  <!-- CONTACT, SECTION 1 (one desktop screen): solid blue panel with title, contact details, plant selector and actions;
+       the Mappls map (or OpenStreetMap interim map) fills the right side at full height. -->
+  <section class="contact-hero" id="locations" aria-labelledby="page-title">
     <div class="contact-hero__panel">
       <div class="contact-hero__inner">
         <p class="eyebrow">Contact</p>
@@ -34,26 +34,26 @@
 
         <div class="contact-hero__actions">
           <a class="btn btn--primary" href="#enquiry">Send an enquiry</a>
-          <a class="btn btn--ghost" href="https://mappls.com/@19.8436,75.2391" target="_blank" rel="noopener" data-plant-directions><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>Get directions</a>
+          <a class="btn btn--ghost" href="#" target="_blank" rel="noopener" data-plant-directions hidden><svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>Get directions</a>
         </div>
       </div>
     </div>
 
-    <!-- MAP: Mappls (MapmyIndia) Web SDK, loaded by main.js once MAPPLS_KEY is set.
-         The static card below is the fallback (no key, SDK failure, or no JavaScript). -->
+    <!-- MAP: Mappls (MapmyIndia) Web SDK once MAPPLS_KEY is set; until then a keyless OpenStreetMap stand-in.
+         The static card below is shown only when no map can be displayed at all. -->
     <div class="map-wrap" data-map>
       <div id="map" role="region" aria-label="Map of the selected MACPL location"></div>
       <div class="map-fallback" id="map-fallback">
         <div class="map-fallback__card">
           <span class="map-fallback__pin"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>
-          <h2 data-fb-name>Registered office</h2>
+          <h2 data-fb-name>Unit I</h2>
           <address data-fb-address>E-63, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136</address>
           <p class="map-fallback__coords" data-fb-coords></p>
           <div class="map-fallback__actions">
-            <a class="btn btn--primary" data-fb-open href="https://mappls.com/@19.8436,75.2391" target="_blank" rel="noopener">Open in Mappls <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></a>
+            <a class="btn btn--primary" data-fb-open href="#" target="_blank" rel="noopener" hidden>Open in Mappls <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg></a>
             <a class="btn btn--secondary" data-fb-call href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span data-fb-phone>+91 240 6625613</span></a>
           </div>
-          <p class="map-fallback__note">Interactive map unavailable. Open this location in Mappls for directions.</p>
+          <p class="map-fallback__note" data-fb-note>Interactive map unavailable.</p>
         </div>
       </div>
     </div>

@@ -10,6 +10,9 @@ import * as C from './content.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const out = join(here, '..');
+// Mappls Web SDK key: from MAPPLS_KEY in the environment or a git-ignored .env file (see .env.example).
+try { process.loadEnvFile(join(out, '.env')); } catch { /* no .env file */ }
+const MAPPLS_KEY = (process.env.MAPPLS_KEY || '').trim();
 const read = (p) => readFileSync(join(here, p), 'utf8');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const ico = (id) => `<svg class="icon" aria-hidden="true"><use href="#i-${id}"></use></svg>`;
@@ -22,7 +25,7 @@ const pages = [
     desc: 'MACPL, an AITG company, develops and mass-manufactures safety-critical steering, suspension and chassis components and assemblies for leading OEMs since 1997.',
     headExtra: '\n<link rel="preload" as="image" href="assets/img/hero/hero-poster.jpg" fetchpriority="high">' },
   { id: 'about', title: `About MACPL | ${SITE}`,
-    desc: 'MACPL since 1997: our story, AITG vision and values, Board of directors and top management.' },
+    desc: 'MACPL since 1997: our story, AITG vision and values, and Board of directors.' },
   { id: 'capabilities', title: `Capabilities | ${SITE}`,
     desc: 'Tube bending, welding and fabrication, heat treatment, aluminium gravity die casting, plasma and gas cutting, components and assemblies.' },
   { id: 'products', title: `Products | ${SITE}`,
@@ -34,10 +37,16 @@ const pages = [
   { id: 'careers', title: `Careers | ${SITE}`,
     desc: 'Current openings and how to apply to Marathwada Auto Compo, Chhatrapati Sambhajinagar.' },
   { id: 'contact', title: `Contact and plant locations | ${SITE}`,
+    headExtra: MAPPLS_KEY ? `\n<meta name="mappls-key" content="${MAPPLS_KEY.replace(/[^\w-]/g, '')}">` : '',
     desc: 'Registered office and plant locations of MACPL at MIDC Waluj, Chhatrapati Sambhajinagar. Phone +91 240 6625613, info@macpl.com.' }
 ];
 
 // ---- Templates -------------------------------------------------------------------
+function oemLogos() {
+  return C.oems.map((o) => o.logo
+    ? `<li><img class="trusted__logo" src="${o.logo}" alt="${esc(o.name)}" loading="lazy" decoding="async"></li>`
+    : `<li><span class="trusted__name">${esc(o.name)}</span></li>`).join('');
+}
 function capsSection(onCapsPage) {
   const href = onCapsPage ? '' : 'capabilities.html';
   const tabs = C.capabilities.map((c, i) => `
@@ -149,10 +158,10 @@ function productCards() {
 
 function newsCards(list) {
   return list.map((n) => {
-    const date = n.date ? `<time datetime="${n.date}">${esc(n.dateLabel)}</time>` : `<span>${esc(n.dateLabel)}</span>`;
-    const meta = `<span class="tag">${esc(n.tag)}</span>${date}${n.placeholder ? '<span class="tag tag--muted">Placeholder</span>' : ''}`;
+    const date = n.date ? `<time datetime="${n.date}">${esc(n.dateLabel)}</time>` : (n.dateLabel ? `<span>${esc(n.dateLabel)}</span>` : '');
+    const meta = `<span class="tag">${esc(n.tag)}</span>${date}`;
     return `
-        <li data-cat="${n.cat}">${n.placeholder ? '\n          <!-- DEMO PLACEHOLDER story: replace text and image -->' : ''}
+        <li data-cat="${n.cat}">
           <article class="news-card" data-modal-item>
             <img class="news-card__img" src="${n.img}" width="${n.w}" height="${n.h}" alt="${esc(n.alt)}" loading="lazy" decoding="async">
             <div class="news-card__body">
@@ -174,14 +183,13 @@ function newsCards(list) {
 function newsFilters() {
   const btn = (id, label, on) => `
           <button class="filter-btn" type="button" data-filter="${id}" aria-pressed="${on}">${esc(label)}</button>`;
-  return btn('all', 'All', true) + C.newsCategories.map((c) => btn(c.id, c.label, false)).join('');
+  const activeCats = C.newsCategories.filter((c) => C.news.some((n) => n.cat === c.id));
+  return btn('all', 'All', true) + activeCats.map((c) => btn(c.id, c.label, false)).join('');
 }
 
 function personPhoto(p, decorative) {
   if (p.photo) return `<img class="person__photo" src="${p.photo}" width="240" height="240" alt="${decorative ? '' : esc(p.name)}" loading="lazy" decoding="async">`;
-  return decorative
-    ? `<span class="person__photo" aria-hidden="true">${initials(p.name)}</span>`
-    : `<span class="person__photo" role="img" aria-label="Photo placeholder for ${esc(p.name)}">${initials(p.name)}</span>`;
+  return `<span class="person__photo" aria-hidden="true">${initials(p.name)}</span>`;
 }
 
 function people(list) {
@@ -202,6 +210,16 @@ function people(list) {
 }
 
 function openings() {
+  if (!C.openings.length) {
+    return `
+        <li class="opening opening--none">
+          <div>
+            <h3>No open positions listed at the moment</h3>
+            <p class="opening__note">We welcome general applications from engineers, supervisors and technicians at our MIDC Waluj plants.</p>
+          </div>
+          <a class="btn btn--secondary" href="#apply">Send general application</a>
+        </li>`;
+  }
   return C.openings.map((o) => `
         <li class="opening">
           <div>
@@ -241,6 +259,7 @@ function pageHero(page) {
 
 const tokens = {
   PAGE_HERO: pageHero,
+  OEM_LOGOS: oemLogos,
   CAPS_SECTION_HOME: () => capsSection(false),
   CAPS_SECTION_PAGE: () => capsSection(true),
   CAP_DETAILS: capDetails,
@@ -252,7 +271,6 @@ const tokens = {
   NEWS_ALL: () => newsCards(C.news),
   NEWS_FILTERS: newsFilters,
   BOARD: () => people(C.board),
-  MANAGEMENT: () => people(C.management),
   OPENINGS: openings,
   POSITION_OPTIONS: positionOptions
 };

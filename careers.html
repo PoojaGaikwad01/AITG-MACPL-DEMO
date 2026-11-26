@@ -69,41 +69,23 @@
     <div class="brand-bar" aria-hidden="true"></div>
   </section>
 
-  <!-- OPENINGS (DEMO PLACEHOLDERS: replace in _src/content.mjs) -->
+  <!-- OPENINGS -->
   <section id="openings" class="section" aria-labelledby="openings-title">
     <div class="container">
       <div class="section-head">
         <div class="section-head__text">
           <p class="eyebrow">Join us</p>
           <h2 id="openings-title">Current openings</h2>
-          <p class="lead">Roles open at our Waluj plants.</p>
+          <p class="lead">Roles at our Waluj plants.</p>
         </div>
-        <span class="tag tag--muted">Placeholder openings</span>
       </div>
       <ul class="openings">
-        <li class="opening">
+        <li class="opening opening--none">
           <div>
-            <h3>Quality engineer</h3>
-            <p class="opening__meta"><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Waluj, Chhatrapati Sambhajinagar</span><span><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>2–5 years</span></p>
-            <p class="opening__note">Diploma or BE (Mechanical). In-process and final inspection of welded assemblies.</p>
+            <h3>No open positions listed at the moment</h3>
+            <p class="opening__note">We welcome general applications from engineers, supervisors and technicians at our MIDC Waluj plants.</p>
           </div>
-          <a class="btn btn--secondary" href="#apply" data-position="Quality engineer">Apply<span class="visually-hidden"> for Quality engineer</span></a>
-        </li>
-        <li class="opening">
-          <div>
-            <h3>Robotic welding programmer</h3>
-            <p class="opening__meta"><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Waluj, Chhatrapati Sambhajinagar</span><span><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>3–6 years</span></p>
-            <p class="opening__note">Programming and fixture prove-out for robotic MIG welding cells.</p>
-          </div>
-          <a class="btn btn--secondary" href="#apply" data-position="Robotic welding programmer">Apply<span class="visually-hidden"> for Robotic welding programmer</span></a>
-        </li>
-        <li class="opening">
-          <div>
-            <h3>Production supervisor, tube bending</h3>
-            <p class="opening__meta"><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg>Waluj, Chhatrapati Sambhajinagar</span><span><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>2–4 years</span></p>
-            <p class="opening__note">Shift supervision of CNC and robotic tube-bending lines.</p>
-          </div>
-          <a class="btn btn--secondary" href="#apply" data-position="Production supervisor, tube bending">Apply<span class="visually-hidden"> for Production supervisor, tube bending</span></a>
+          <a class="btn btn--secondary" href="#apply">Send general application</a>
         </li>
       </ul>
     </div>
@@ -139,7 +121,7 @@
         <div class="field">
           <label for="app-position">Position <span class="req" aria-hidden="true">*</span></label>
           <select id="app-position" name="position" required>
-            <option value="">Select a position</option><option>Quality engineer</option><option>Robotic welding programmer</option><option>Production supervisor, tube bending</option><option>General application</option>
+            <option value="">Select a position</option><option>General application</option>
           </select>
         </div>
         <div class="field field--full">
@@ -164,12 +146,14 @@
     <div class="footer-top">
       <!-- Official MACPL logo, white-text version (placeholder source: https://www.macpl-aitg.co/images/logo.png).
            TODO: replace with the high-resolution file from the AITG Brand Manual. -->
-      <a class="footer-logo" href="index.html"><img src="assets/img/logo/macpl-logo-white.png" width="415" height="54" alt="Marathwada Auto Compo Pvt. Ltd., an AITG company: home" loading="lazy" decoding="async"></a>
-      <p class="footer-tagline">Precise products for critical functions. Safety-critical components for leading OEMs since 1997.</p>
-      <ul class="footer-contact">
-        <li><a href="tel:+912406625613">+91 240 6625613</a> / <a href="tel:+912406625614" aria-label="+91 240 6625614">6625614</a></li>
-        <li><a href="mailto:info@macpl.com">info@macpl.com</a></li>
-      </ul>
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html"><img src="assets/img/logo/macpl-logo-white.png" width="415" height="54" alt="Marathwada Auto Compo Pvt. Ltd., an AITG company: home" loading="lazy" decoding="async"></a>
+        <p class="footer-tagline">Precise products for critical functions. Safety-critical components for leading OEMs since 1997.</p>
+      </div>
+      <div class="footer-actions">
+        <a class="btn btn--primary btn--sm" href="contact.html#enquiry">Send an enquiry</a>
+        <a class="btn btn--ghost btn--sm" href="tel:+912406625613"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg>+91 240 6625613</a>
+      </div>
     </div>
     <div class="footer-grid">
       <nav aria-labelledby="ft-capabilities">
@@ -188,7 +172,7 @@
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="about.html#vision-values">Vision &amp; values</a></li>
-          <li><a href="about.html#board">Leadership</a></li>
+          <li><a href="about.html#board">Board of directors</a></li>
           <li><a href="investor-relations.html">Investor relations</a></li>
           <li><a href="careers.html">Careers</a></li>
         </ul>
@@ -198,6 +182,7 @@
         <ul>
           <li><a href="products.html">Products</a></li>
           <li><a href="news.html">News &amp; media</a></li>
+          <li><a href="contact.html#locations">Plant locations</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -205,6 +190,10 @@
         <div class="footer-office__addr">
           <h2 class="footer-title">Registered office</h2>
           <address>E-63, MIDC Waluj, Aurangabad<br>(Chhatrapati Sambhajinagar)<br>Maharashtra 431136, India</address>
+          <ul class="footer-contact">
+            <li><a href="tel:+912406625613">+91 240 6625613</a> / <a href="tel:+912406625614" aria-label="+91 240 6625614">6625614</a></li>
+            <li><a href="mailto:info@macpl.com">info@macpl.com</a></li>
+          </ul>
         </div>
         <div class="footer-office__group">
           <h2 class="footer-title">AITG group</h2>
@@ -224,7 +213,10 @@
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 Marathwada Auto Compo Pvt. Ltd.</span>
-      <span>CIN: U29130MH1988PTC046951</span>
+      <span class="footer-bottom__end">
+        <span>CIN: U29130MH1988PTC046951</span>
+        <a class="to-top" href="#" aria-label="Back to top"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+      </span>
     </div>
   </div>
   <div class="footer-bar" aria-hidden="true"></div>

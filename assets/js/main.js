@@ -8,17 +8,18 @@
    C. IR_DOCUMENTS  — every document listed on investor-relations.html
    ========================================================================== */
 
-/* A. Mappls key. TODO: paste the client's Mappls (MapmyIndia) Web SDK key.
-      While it is 'TODO' the contact page shows a static address card instead of the map. */
-const MAPPLS_KEY = 'TODO';
+/* A. Mappls (MapmyIndia) Web SDK key: build.mjs writes it from the MAPPLS_KEY environment variable into
+      <meta name="mappls-key"> on contact.html. Restrict the key to the site's domain in the Mappls console.
+      Without a key (or without plant coordinates) the contact page shows an OpenStreetMap interim map or static card. */
+const MAPPLS_KEY = (document.querySelector('meta[name="mappls-key"]') || {}).content || '';
 
-/* B. Locations. TODO: the client must supply exact addresses and coordinates for every unit.
-      Current lat/lng values are placeholders around MIDC Waluj (~19.84, 75.24). */
+/* B. Locations. Addresses are from the Contact page of macpl-aitg.co. Unit I's coordinates come from the map
+      embedded on that page; Units II and III have none yet (lat/lng: null shows the address without a marker).
+      TODO: MACPL to supply coordinates for Units II and III (decimal degrees). */
 const PLANTS = [
-  { id: 'registered-office', name: 'Registered office', address: 'E-63, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136', lat: 19.8436, lng: 75.2391, phone: '+91 240 6625613' },
-  { id: 'unit-1', name: 'Unit 1', address: 'MIDC Waluj, Chhatrapati Sambhajinagar, Maharashtra 431136 (full address TBC)', lat: 19.8412, lng: 75.2352, phone: '+91 240 6625613' },
-  { id: 'unit-2', name: 'Unit 2', address: 'MIDC Waluj, Chhatrapati Sambhajinagar, Maharashtra 431136 (full address TBC)', lat: 19.8471, lng: 75.2446, phone: '+91 240 6625614' },
-  { id: 'unit-3', name: 'Unit 3', address: 'MIDC Waluj, Chhatrapati Sambhajinagar, Maharashtra 431136 (full address TBC)', lat: 19.8377, lng: 75.2309, phone: '+91 240 6625614' }
+  { id: 'unit-1', name: 'Unit I (Regd. office)', address: 'E-63, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136', lat: 19.843761, lng: 75.222207, phone: '+91 240 6625613' },
+  { id: 'unit-2', name: 'Unit II', address: 'E-69, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136', lat: null, lng: null, phone: '+91 240 6625613' },
+  { id: 'unit-3', name: 'Unit III', address: 'K-22/23, MIDC Waluj, Chhatrapati Sambhajinagar (Aurangabad), Maharashtra 431136', lat: null, lng: null, phone: '+91 240 6625613' }
 ];
 
 /* C. Investor relations documents.
@@ -27,8 +28,7 @@ const PLANTS = [
         fy       : financial year as 'YYYY-YY' (must exist in FY_LIST to be filterable)
         title    : document title
         date     : 'YYYY-MM-DD' or '' if not known
-        url      : full link to the PDF ('' = not uploaded yet, shown as a placeholder)
-      Entries with placeholder: true are DEMO PLACEHOLDERS — replace or delete them. */
+        url      : full link to the PDF */
 const FY_LIST = ['2025-26', '2024-25', '2023-24', '2022-23', '2021-22'];
 
 const IR_CATEGORIES = [
@@ -42,24 +42,8 @@ const IR_CATEGORIES = [
 ];
 
 const IR_DOCUMENTS = [
-  // Real documents
   { category: 'annual-returns', fy: '2021-22', title: 'Annual return FY 2021–22', date: '', url: 'https://www.macpl-aitg.co/images/financials/MACPL-Annual-Return-2021-2022.pdf' },
-  { category: 'policies', fy: '2022-23', title: 'Corporate social responsibility (CSR) policy, 2022', date: '', url: 'https://www.macpl-aitg.co/images/financials/MACPL-CSR-Policy-2022.pdf' }, // TODO: confirm FY
-
-  // DEMO PLACEHOLDERS — replace with real documents
-  { category: 'financial-results', fy: '2024-25', title: 'Audited financial results FY 2024–25', date: '', url: '', placeholder: true },
-  { category: 'financial-results', fy: '2023-24', title: 'Audited financial results FY 2023–24', date: '', url: '', placeholder: true },
-  { category: 'financial-results', fy: '2022-23', title: 'Audited financial results FY 2022–23', date: '', url: '', placeholder: true },
-  { category: 'annual-reports', fy: '2024-25', title: 'Annual report FY 2024–25', date: '', url: '', placeholder: true },
-  { category: 'annual-reports', fy: '2023-24', title: 'Annual report FY 2023–24', date: '', url: '', placeholder: true },
-  { category: 'annual-returns', fy: '2024-25', title: 'Annual return FY 2024–25', date: '', url: '', placeholder: true },
-  { category: 'annual-returns', fy: '2023-24', title: 'Annual return FY 2023–24', date: '', url: '', placeholder: true },
-  { category: 'annual-returns', fy: '2022-23', title: 'Annual return FY 2022–23', date: '', url: '', placeholder: true },
-  { category: 'policies', fy: '2025-26', title: 'CSR annual action plan FY 2025–26', date: '', url: '', placeholder: true },
-  { category: 'announcements', fy: '2025-26', title: 'Notice of annual general meeting (FY 2024–25)', date: '', url: '', placeholder: true },
-  { category: 'announcements', fy: '2024-25', title: 'Notice of annual general meeting (FY 2023–24)', date: '', url: '', placeholder: true },
-  { category: 'committees', fy: '2025-26', title: 'Composition of Board committees', date: '', url: '', placeholder: true },
-  { category: 'shareholder-info', fy: '2024-25', title: 'Shareholding pattern as on 31 March 2025', date: '', url: '', placeholder: true }
+  { category: 'policies', fy: '2022-23', title: 'Corporate social responsibility (CSR) policy, 2022', date: '', url: 'https://www.macpl-aitg.co/images/financials/MACPL-CSR-Policy-2022.pdf' }
 ];
 
 /* ==========================================================================
@@ -108,42 +92,30 @@ const IR_DOCUMENTS = [
     desktopMq.addEventListener('change', function () { setOpen(false); });
   }
 
-  /* 2. Hero video + demo variant switcher ------------------------------------ */
+  /* 2. Hero video ----------------------------------------------------------- */
   function initHero() {
     var hero = $('#hero');
     if (!hero) return;
     var video = $('.hero__video', hero);
-    var btn = $('.hero__video-toggle', hero);
 
     /* One <video> only. It plays after `loadeddata`, pauses while the hero is off-screen or the tab is hidden,
-       stays paused for prefers-reduced-motion (until the visitor presses play) and after a manual pause.
-       A poster layer covers it until the first `playing` event, so there is no black flash.
-       No scroll listeners touch the video. */
+       and stays paused for prefers-reduced-motion. A poster layer covers it until it starts playing. */
     if (video) {
-      var userPaused = false;
-      var userStarted = false;
       var inView = true;
       var wanted = function () {
-        return !userPaused && inView && !document.hidden && (userStarted || !reduceMotion.matches);
+        return inView && !document.hidden && !reduceMotion.matches;
       };
       var play = function () { var p = video.play(); if (p && p.catch) p.catch(function () {}); };
       var update = function () {
         if (wanted()) { if (video.paused && video.readyState >= 2) play(); }
         else if (!video.paused) video.pause();
       };
-      var sync = function () {
-        if (!btn) return;
-        var playing = !video.paused;
-        btn.setAttribute('aria-label', playing ? 'Pause background video' : 'Play background video');
-        $('.i-pause', btn).hidden = !playing;
-        $('.i-play', btn).hidden = playing;
-      };
 
       hero.classList.add('js-video');
       if (reduceMotion.matches) { video.removeAttribute('autoplay'); video.pause(); }
+      else if (!video.paused && video.readyState >= 2) { hero.classList.add('is-playing'); }
       video.addEventListener('playing', function () { hero.classList.add('is-playing'); });
-      video.addEventListener('play', sync);
-      video.addEventListener('pause', sync);
+      video.addEventListener('timeupdate', function () { hero.classList.add('is-playing'); }, { once: true });
       if (video.readyState >= 2) update(); else video.addEventListener('loadeddata', update, { once: true });
 
       if ('IntersectionObserver' in window) {
@@ -153,26 +125,131 @@ const IR_DOCUMENTS = [
         }, { threshold: 0.01 }).observe(hero);
       }
       document.addEventListener('visibilitychange', update);
+    }
+  }
 
-      if (btn) btn.addEventListener('click', function () {
-        if (video.paused) { userPaused = false; userStarted = true; play(); }
-        else { userPaused = true; video.pause(); }
+  /* 2a. Smooth scrolling across the entire website:
+         - In-page #hash links, back-to-top, and cross-page #hash targets glide smoothly with sticky-header offset
+         - Mouse-wheel / pointer scrolling uses frame-rate-independent exponential smoothing (60Hz–144Hz)
+         - Touch devices, Ctrl+wheel zoom, and inner scrollable areas (modal, map, textarea) stay native
+         - Respects prefers-reduced-motion */
+  function initSmoothScroll() {
+    var root = document.scrollingElement || document.documentElement;
+    var target = 0, current = 0, raf = 0, lastTs = 0;
+
+    function smoothTo(y) {
+      var max = Math.max(0, root.scrollHeight - window.innerHeight);
+      var dest = Math.max(0, Math.min(max, y));
+      if (reduceMotion.matches) {
+        stop();
+        window.scrollTo(0, dest);
+        return;
+      }
+      if (!raf) { current = window.scrollY; lastTs = 0; root.style.scrollBehavior = 'auto'; }
+      target = dest;
+      if (!raf) raf = requestAnimationFrame(step);
+    }
+
+    function stop() {
+      if (!raf) return;
+      cancelAnimationFrame(raf);
+      raf = 0;
+      lastTs = 0;
+      root.style.scrollBehavior = '';
+    }
+
+    function step(ts) {
+      if (!lastTs) lastTs = ts;
+      var dt = Math.min(0.05, (ts - lastTs) / 1000);
+      lastTs = ts;
+      var alpha = 1 - Math.exp(-11 * dt);
+      current += (target - current) * alpha;
+      if (Math.abs(target - current) < 0.5) current = target;
+      window.scrollTo(0, current);
+      if (current === target) stop();
+      else raf = requestAnimationFrame(step);
+    }
+
+    function hashOffset(el) {
+      var header = $('.site-header');
+      var anchor = $('.anchor-bar');
+      var offset = (header ? header.offsetHeight : 0) + 12;
+      if (anchor && el.closest && el.closest('.about-section')) offset += anchor.offsetHeight;
+      return Math.max(0, el.getBoundingClientRect().top + window.scrollY - offset);
+    }
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (!link || link.target === '_blank') return;
+      var raw = link.getAttribute('href');
+      if (link.classList.contains('to-top') || raw === '#') {
+        e.preventDefault();
+        smoothTo(0);
+        return;
+      }
+      var url;
+      try { url = new URL(link.href, window.location.href); } catch (err) { return; }
+      if (url.origin !== window.location.origin || url.pathname !== window.location.pathname || !url.hash || url.hash.length < 2) return;
+      var destEl = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+      if (!destEl) return;
+      e.preventDefault();
+      smoothTo(hashOffset(destEl));
+      if (window.history.pushState) window.history.pushState(null, '', url.hash);
+    });
+
+    if (reduceMotion.matches) return;
+    if (!window.matchMedia('(any-pointer: fine)').matches) return;
+
+    function ownScroll(el, dy) {
+      for (; el && el !== document.body && el !== root; el = el.parentElement) {
+        if (el.matches && el.matches('dialog, textarea, select, iframe, .map-wrap')) return true;
+        if (el.scrollHeight > el.clientHeight && /(auto|scroll)/.test(getComputedStyle(el).overflowY) &&
+            ((dy < 0 && el.scrollTop > 0) || (dy > 0 && el.scrollTop + el.clientHeight < el.scrollHeight - 1))) return true;
+      }
+      return false;
+    }
+
+    window.addEventListener('wheel', function (e) {
+      if (e.defaultPrevented || e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+      if (document.querySelector('dialog[open]') || ownScroll(e.target, e.deltaY)) return;
+      var dy = e.deltaY * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? window.innerHeight : 1);
+      if (!dy) return;
+      e.preventDefault();
+      if (!raf) { current = target = window.scrollY; lastTs = 0; root.style.scrollBehavior = 'auto'; }
+      var max = Math.max(0, root.scrollHeight - window.innerHeight);
+      target = Math.max(0, Math.min(max, target + dy));
+      if (!raf) raf = requestAnimationFrame(step);
+    }, { passive: false });
+
+    ['mousedown', 'keydown', 'touchstart'].forEach(function (ev) { window.addEventListener(ev, stop, { passive: true }); });
+  }
+
+  /* 2b. Sticky header elevation on scroll */
+  function initHeaderState() {
+    var header = $('.site-header');
+    if (!header) return;
+    var on = null;
+    function update() {
+      var scrolled = window.scrollY > 4;
+      if (scrolled !== on) { on = scrolled; header.classList.toggle('is-scrolled', scrolled); }
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  /* 2c. About: highlight the "on this page" anchor link while reading */
+  function initAnchorSpy() {
+    var links = $$('.anchor-bar a[href^="#"]');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var byId = {};
+    links.forEach(function (a) { var id = a.getAttribute('href').slice(1); if (document.getElementById(id)) byId[id] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { if (a === byId[e.target.id]) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
       });
-      sync();
-    }
-
-    /* DEMO ONLY — hero option A/B/C. Delete this block and the .demo-switch markup before launch. */
-    var sw = $('.demo-switch');
-    if (!sw) return;
-    var buttons = $$('button[data-hero]', sw);
-    function setVariant(v, save) {
-      if (!/^[abc]$/.test(v)) v = 'a';
-      hero.setAttribute('data-variant', v);
-      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-hero') === v)); });
-      if (save) store('macpl-hero-variant', v);
-    }
-    buttons.forEach(function (b) { b.addEventListener('click', function () { setVariant(b.getAttribute('data-hero'), true); }); });
-    setVariant((param('hero') || store('macpl-hero-variant') || hero.getAttribute('data-variant') || 'a').toLowerCase(), false);
+    }, { rootMargin: '-38% 0px -55% 0px' });
+    Object.keys(byId).forEach(function (id) { io.observe(document.getElementById(id)); });
   }
 
   /* 3. Capabilities tabs (macpl-iota style) --------------------------------- */
@@ -188,10 +265,9 @@ const IR_DOCUMENTS = [
           if (panels[j]) panels[j].hidden = !on;
         });
         if (focus) tabs[i].focus();
-        // On small screens keep the newly shown panel in view (instant, no smooth scrolling).
         if (fromClick && !desktopMq.matches && panels[i]) {
           var r = panels[i].getBoundingClientRect();
-          if (r.top > window.innerHeight - 120) panels[i].scrollIntoView({ block: 'nearest' });
+          if (r.top > window.innerHeight - 120) panels[i].scrollIntoView({ block: 'nearest', behavior: reduceMotion.matches ? 'auto' : 'smooth' });
         }
       }
       tabs.forEach(function (t, i) {
@@ -279,6 +355,7 @@ const IR_DOCUMENTS = [
     var tbody = $('#ir-rows', root);
     var tableWrap = $('#ir-table', root);
     var empty = $('#ir-empty', root);
+    var emptyText = $('#ir-empty-text', root);
     var contact = $('#ir-contact', root);
 
     select.innerHTML = '<option value="all">All years</option>' + FY_LIST.map(function (fy) {
@@ -308,14 +385,19 @@ const IR_DOCUMENTS = [
       tbody.innerHTML = docs.map(function (d) {
         var link = d.url
           ? '<a class="pdf-link" href="' + esc(d.url) + '" target="_blank" rel="noopener" aria-label="View PDF: ' + esc(d.title) + ' (opens in a new tab)">' + icon('file') + 'PDF</a>'
-          : '<span class="pdf-link" aria-disabled="true" title="Document to be uploaded">' + icon('file') + 'PDF</span>';
+          : '<span class="pdf-link" aria-disabled="true" title="Document not yet available">' + icon('file') + 'PDF</span>';
         return '<tr><td><span class="doc-title">' + icon('file') + '<span>' + esc(d.title) +
-          (d.placeholder ? ' <span class="tag tag--muted">Placeholder</span>' : '') +
           '<br><small class="doc-fy">FY ' + esc(d.fy.replace('-', '–')) + '</small></span></span></td>' +
           '<td class="doc-date">' + fmtDate(d.date) + '</td><td>' + link + '</td></tr>';
       }).join('');
       tableWrap.hidden = docs.length === 0;
       empty.hidden = docs.length > 0;
+      if (emptyText) {
+        var inCategory = IR_DOCUMENTS.some(function (d) { return d.category === cat.id; });
+        emptyText.innerHTML = inCategory
+          ? '<strong>No documents for the selected year.</strong><br>Choose another year or &ldquo;All years&rdquo;.'
+          : '<strong>No documents published in this category yet.</strong>';
+      }
     }
     function selectTab(i, focus) {
       current = IR_CATEGORIES[i].id;
@@ -342,7 +424,7 @@ const IR_DOCUMENTS = [
     // Page-hero chips link to #financial-results, #policies, … : switch tab and bring the panel into view.
     window.addEventListener('hashchange', function () {
       var i = ids.indexOf(window.location.hash.slice(1));
-      if (i > -1) { selectTab(i, false); root.scrollIntoView({ block: 'start' }); }
+      if (i > -1) { selectTab(i, false); root.scrollIntoView({ block: 'start', behavior: reduceMotion.matches ? 'auto' : 'smooth' }); }
     });
   }
 
@@ -356,7 +438,7 @@ const IR_DOCUMENTS = [
         if (!btn) return;
         e.preventDefault();
         btn.click();
-        (btn.closest('.filter-bar') || btn.closest('section') || btn).scrollIntoView({ block: 'start' });
+        (btn.closest('.filter-bar') || btn.closest('section') || btn).scrollIntoView({ block: 'start', behavior: reduceMotion.matches ? 'auto' : 'smooth' });
       });
     });
 
@@ -386,6 +468,7 @@ const IR_DOCUMENTS = [
     var current = PLANTS[0];
     var map = null, marker = null, ready = false, failed = false, timer = null;
 
+    function hasCoords(p) { return typeof p.lat === 'number' && typeof p.lng === 'number'; }
     function mapplsUrl(p) { return 'https://mappls.com/@' + p.lat + ',' + p.lng; }
     function telHref(n) { return 'tel:' + n.replace(/[^+\d]/g, ''); }
     function popupHtml(p) {
@@ -402,17 +485,44 @@ const IR_DOCUMENTS = [
     function renderFallback(p) {
       $('[data-fb-name]', fallback).textContent = p.name;
       $('[data-fb-address]', fallback).textContent = p.address;
-      $('[data-fb-coords]', fallback).textContent = p.lat.toFixed(4) + '° N, ' + p.lng.toFixed(4) + '° E';
-      $('[data-fb-open]', fallback).href = mapplsUrl(p);
+      var located = hasCoords(p);
+      $('[data-fb-coords]', fallback).textContent = located ? p.lat.toFixed(4) + '° N, ' + p.lng.toFixed(4) + '° E' : '';
+      $('[data-fb-open]', fallback).hidden = !located;
+      if (located) $('[data-fb-open]', fallback).href = mapplsUrl(p);
+      var noteEl = $('[data-fb-note]', fallback);
+      if (noteEl) {
+        noteEl.textContent = !located ? 'Showing the MIDC Waluj industrial area. Call us for gate directions.'
+          : wrap.classList.contains('is-interim') ? ''
+          : 'Interactive map unavailable. Open this location in Mappls for directions.';
+      }
       $('[data-fb-call]', fallback).href = telHref(p.phone);
       $('[data-fb-phone]', fallback).textContent = p.phone;
+    }
+    /* Keyless stand-in: an OpenStreetMap embed, used until MAPPLS_KEY is configured or if the SDK fails.
+       A location without coordinates shows the surrounding area of the nearest known location, with no marker. */
+    function interimMap(p) {
+      var base = hasCoords(p) ? p : PLANTS.filter(hasCoords)[0];
+      if (!base) return false;
+      var bbox = [base.lng - 0.008, base.lat - 0.005, base.lng + 0.008, base.lat + 0.005].map(function (n) { return n.toFixed(6); });
+      var src = 'https://www.openstreetmap.org/export/embed.html?layer=mapnik&bbox=' + bbox.join('%2C') +
+        (hasCoords(p) ? '&marker=' + p.lat + '%2C' + p.lng : '');
+      var frame = $('iframe', mapEl);
+      if (!frame) {
+        frame = document.createElement('iframe');
+        frame.title = 'Map of the selected MACPL location';
+        mapEl.appendChild(frame);
+      }
+      if (frame.getAttribute('src') !== src) frame.setAttribute('src', src);
+      wrap.classList.add('is-interim');
+      return true;
     }
     function showFallback() {
       if (ready) return;
       failed = true;
       clearTimeout(timer);
       fallback.hidden = false;
-      mapEl.setAttribute('aria-hidden', 'true');
+      if (interimMap(current)) { mapEl.removeAttribute('aria-hidden'); renderFallback(current); }
+      else mapEl.setAttribute('aria-hidden', 'true');
     }
     function placeMarker(p, animate) {
       if (!map) return;
@@ -438,10 +548,17 @@ const IR_DOCUMENTS = [
     function select(id, animate) {
       current = PLANTS.filter(function (p) { return p.id === id; })[0] || PLANTS[0];
       $$('.plant-btn', list).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-id') === current.id)); });
-      if (detail) detail.textContent = current.address;
-      $$('[data-plant-directions]').forEach(function (l) { l.href = mapplsUrl(current); });
+      if (detail) detail.textContent = hasCoords(current) ? '' : current.name + ' — MIDC Waluj industrial area (call +91 240 6625613 for gate directions).';
+      $$('[data-plant-directions]').forEach(function (l) {
+        l.hidden = !hasCoords(current);
+        if (hasCoords(current)) l.href = mapplsUrl(current);
+      });
       renderFallback(current);
-      if (ready) placeMarker(current, animate);
+      if (failed) interimMap(current);
+      if (ready) {
+        fallback.hidden = hasCoords(current);
+        if (hasCoords(current)) placeMarker(current, animate);
+      }
     }
     list.addEventListener('click', function (e) {
       var b = e.target.closest('.plant-btn');
@@ -453,13 +570,14 @@ const IR_DOCUMENTS = [
     window.initMap = function () {
       if (failed) return;
       try {
-        map = new window.mappls.Map('map', { center: { lat: current.lat, lng: current.lng }, zoom: 16, zoomControl: true, location: false });
+        var start = hasCoords(current) ? current : PLANTS.filter(hasCoords)[0];
+        map = new window.mappls.Map('map', { center: { lat: start.lat, lng: start.lng }, zoom: 16, zoomControl: true, location: false });
         var onLoad = function () {
           if (ready) return;
           ready = true;
           clearTimeout(timer);
-          fallback.hidden = true;
-          placeMarker(current, false);
+          fallback.hidden = !hasCoords(current);
+          if (hasCoords(current)) placeMarker(current, false);
         };
         if (typeof map.addListener === 'function') map.addListener('load', onLoad);
         else if (typeof map.on === 'function') map.on('load', onLoad);
@@ -471,8 +589,10 @@ const IR_DOCUMENTS = [
       }
     };
 
-    if (!MAPPLS_KEY || MAPPLS_KEY === 'TODO') {
-      if (window.console) console.info('Mappls key not set (MAPPLS_KEY in assets/js/main.js). Showing the static location card.');
+    if (!MAPPLS_KEY || MAPPLS_KEY === 'TODO' || !PLANTS.some(hasCoords)) {
+      if (window.console) console.info(!MAPPLS_KEY || MAPPLS_KEY === 'TODO'
+        ? 'Mappls key not set (MAPPLS_KEY environment variable, then rebuild). Showing the OpenStreetMap stand-in.'
+        : 'No plant coordinates yet (PLANTS in assets/js/main.js). Showing the static location card.');
       showFallback();
       return;
     }
@@ -517,6 +637,9 @@ const IR_DOCUMENTS = [
   }
 
   initNav();
+  initSmoothScroll();
+  initHeaderState();
+  initAnchorSpy();
   initHero();
   initCapTabs();
   initFilters();

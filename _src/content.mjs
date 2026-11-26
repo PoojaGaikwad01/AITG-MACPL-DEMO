@@ -96,8 +96,7 @@ export const products = [
   ['2w', 'Telescopic suspension fork, 2-wheeler EV', 'Ø 30 mm, drum-brake assembly.', 'p19-suspension-fork-2w-ev-drum.jpg']
 ].map(([cat, name, desc, img], i) => ({ cat, name, desc, img, code: 'P-' + String(i + 1).padStart(2, '0') }));
 
-// ---- News (the homepage shows the first three) --------------------------------
-// Six stories keep every grid row full (3 per row; 2 per filter).
+// ---- News (the homepage shows the latest stories) ----------------------------
 export const newsCategories = [
   { id: 'certifications', label: 'Certifications' },
   { id: 'events', label: 'Events' },
@@ -106,7 +105,7 @@ export const newsCategories = [
 
 export const news = [
   {
-    cat: 'certifications', tag: 'Certification', date: '', dateLabel: 'Date TBC', // TODO: certification date
+    cat: 'certifications', tag: 'Certification', date: '', dateLabel: '',
     title: 'MACPL achieves ISO 9001, ISO 14001 and OHSAS 18001 certification',
     excerpt: 'Quality, environment and safety systems certified by TÜV Nord auditors.',
     body: ['MACPL has implemented integrated quality, environment and occupational health and safety management systems, certified to ISO 9001, ISO 14001 and OHSAS 18001 by TÜV Nord auditors.'],
@@ -118,35 +117,6 @@ export const news = [
     excerpt: 'The MACPL team planted around 130 trees along the main road of MIDC Waluj.',
     body: ['On World Environment Day, 5 June 2016, the MACPL team planted around 130 trees along the main road of MIDC Waluj as part of the AITG Go Green initiative.'],
     img: 'assets/img/news/world-environment-day-2016.jpg', w: 800, h: 450, alt: 'MACPL team volunteers on World Environment Day'
-  },
-  // DEMO PLACEHOLDERS — replace with real stories
-  {
-    placeholder: true, cat: 'events', tag: 'Events', date: '', dateLabel: 'Date TBC',
-    title: 'Safety week across all three plants',
-    excerpt: 'Placeholder. Replace with a real event: drills, training and safety awards.',
-    body: ['Placeholder story for the demo. Replace it with a real event from MACPL.'],
-    img: 'assets/img/capabilities/welding.jpg', w: 960, h: 720, alt: 'Welder at work'
-  },
-  {
-    placeholder: true, cat: 'events', tag: 'Events', date: '', dateLabel: 'Date TBC',
-    title: 'MACPL at an industry exhibition',
-    excerpt: 'Placeholder. Replace with a trade fair or customer event.',
-    body: ['Placeholder story for the demo. Replace it with details of a trade fair or customer event.'],
-    img: 'assets/img/capabilities/assembly.jpg', w: 960, h: 720, alt: 'Telescopic suspension fork assembly'
-  },
-  {
-    placeholder: true, cat: 'csr', tag: 'CSR', date: '', dateLabel: 'Date TBC',
-    title: 'Community health camp near MIDC Waluj',
-    excerpt: 'Placeholder. Replace with an activity under the company’s CSR policy.',
-    body: ['Placeholder story for the demo. Replace it with a CSR activity carried out under the company’s CSR policy.'],
-    img: 'assets/img/capabilities/tube-bending.jpg', w: 960, h: 720, alt: 'Robot loading a red-hot tube into a bending press'
-  },
-  {
-    placeholder: true, cat: 'certifications', tag: 'Certification', date: '', dateLabel: 'Date TBC',
-    title: 'Surveillance audit completed',
-    excerpt: 'Placeholder. Replace with a recent audit or certification renewal.',
-    body: ['Placeholder story for the demo. Replace it with a recent audit or certification renewal.'],
-    img: 'assets/img/capabilities/plasma-cutting.jpg', w: 960, h: 720, alt: 'Plasma torch cutting a steel plate'
   }
 ];
 
@@ -191,22 +161,21 @@ export const board = [
   }
 ];
 
-// TODO: management one-line summaries and profiles to be supplied by MACPL.
-export const management = [
-  { name: 'Shrikant Damani', role: 'Accounts & finance head', summary: 'Leads accounts, finance and statutory compliance.' },
-  { name: 'Rajendra Bhandari', role: 'Materials head', summary: 'Leads purchasing, supply chain and stores.' },
-  { name: 'Ganesh Jadhav', role: 'HR head', summary: 'Leads recruitment, training and employee relations.' },
-  { name: 'Anant Adhav', role: 'Plant head, Unit 1', summary: 'Runs production and operations at Unit 1.' },
-  { name: 'Vivek Deshpande', role: 'Plant head, Unit 2', summary: 'Runs production and operations at Unit 2.' },
-  { name: 'Avinash Kude', role: 'Plant head, Unit 3', summary: 'Runs production and operations at Unit 3.' }
-].map((p) => ({ ...p, bio: [p.summary, 'Full profile to be provided by MACPL.'] }));
-
-// ---- Careers (DEMO PLACEHOLDERS) ------------------------------------------------
-export const openings = [
-  { title: 'Quality engineer', location: 'Waluj, Chhatrapati Sambhajinagar', experience: '2–5 years', note: 'Diploma or BE (Mechanical). In-process and final inspection of welded assemblies.' },
-  { title: 'Robotic welding programmer', location: 'Waluj, Chhatrapati Sambhajinagar', experience: '3–6 years', note: 'Programming and fixture prove-out for robotic MIG welding cells.' },
-  { title: 'Production supervisor, tube bending', location: 'Waluj, Chhatrapati Sambhajinagar', experience: '2–4 years', note: 'Shift supervision of CNC and robotic tube-bending lines.' }
+// ---- Trusted by (OEM customers) ---------------------------------------------
+// Logo files in assets/img/oem/. Sources: TVS from tvsmotor.com; JCB, Bajaj Auto, Piaggio and Hyundai from
+// Wikimedia Commons (public-domain logo artwork). TODO: confirm with MACPL that each OEM approves its logo being
+// shown, and swap in files supplied by the OEMs if required.
+export const oems = [
+  { name: 'JCB', logo: 'assets/img/oem/jcb.svg' },
+  { name: 'Bajaj Auto', logo: 'assets/img/oem/bajaj.svg' },
+  { name: 'TVS Motor Company', logo: 'assets/img/oem/tvs.svg' },
+  { name: 'Piaggio', logo: 'assets/img/oem/piaggio.svg' },
+  { name: 'Hyundai', logo: 'assets/img/oem/hyundai.svg' }
 ];
+
+// ---- Careers --------------------------------------------------------------------
+// Add openings as { title, location, experience, note }. When empty, the page invites general applications.
+export const openings = [];
 
 // ---- Inner-page hero (all pages except Home) ---------------------------------------
 // chips: [label, href, filter?, icon?]. `filter` sets the page's category filter on click (products, news).
@@ -216,7 +185,7 @@ export const pageHeroes = {
     eyebrow: 'Since 1997', title: 'Engineering safety into every component',
     intro: 'Founded in 1997, MACPL develops and builds safety-critical components for more than a dozen OEMs.',
     chipsLabel: 'On this page',
-    chips: [['Overview', '#overview'], ['Vision & values', '#vision-values'], ['Board', '#board'], ['Management', '#management']]
+    chips: [['Overview', '#overview'], ['Vision & values', '#vision-values'], ['Board of directors', '#board']]
   },
   capabilities: {
     eyebrow: 'Under one roof', title: 'Six core manufacturing capabilities',
@@ -240,7 +209,7 @@ export const pageHeroes = {
     eyebrow: 'Newsroom', title: 'News, certifications and events',
     intro: 'Certifications, initiatives and life across our three plants.',
     chipsLabel: 'Filter by topic',
-    chips: [['Certifications', '?cat=certifications', 'certifications'], ['Events', '?cat=events', 'events'], ['CSR', '?cat=csr', 'csr']]
+    chips: [['Certifications', '?cat=certifications', 'certifications'], ['CSR', '?cat=csr', 'csr']]
   },
   careers: {
     eyebrow: 'Join MACPL', title: 'Build a career in precision manufacturing',
